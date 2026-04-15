@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ app.app_name }}</title>
+  <style>
+    :root {
+      --primary: {{ style.get('color_primary', '#4F46E5') }};
+      --secondary: {{ style.get('color_secondary', '#1F2937') }};
+      --bg: {{ style.get('color_background', '#F9FAFB') }};
+      --surface: {{ style.get('color_surface', '#FFFFFF') }};
+      --text: {{ style.get('color_text', '#111827') }};
+      --accent: {{ style.get('color_accent', '#06B6D4') }};
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 15% -10%, color-mix(in srgb, var(--primary) 14%, transparent), transparent), var(--bg);
+      line-height: 1.5;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .section { margin: 20px 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+    .hero { display: grid; gap: 16px; align-items: center; grid-template-columns: 1fr auto; }
+    .hero img { width: 108px; height: 108px; border-radius: 20px; }
+    .cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .meta { color: color-mix(in srgb, var(--text) 65%, transparent); font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .benefit h3 { margin: 0 0 8px 0; font-size: 17px; }
+    .token {
+      display: inline-block;
+      font-size: 11px;
+      background: color-mix(in srgb, var(--accent) 18%, #fff);
+      color: color-mix(in srgb, var(--secondary) 85%, #000);
+      border-radius: 999px;
+      padding: 4px 8px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .reviews blockquote {
+      margin: 0;
+      padding: 12px;
+      border-left: 3px solid var(--accent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--accent));
+      border-radius: 8px;
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    }
+    .reviews blockquote div { color: var(--text); }
+    .reviews blockquote footer { color: color-mix(in srgb, var(--text) 70%, transparent); }
+    .gallery { display: grid; gap: 10px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .gallery img { width: 100%; border-radius: 10px; border: 1px solid #d1d5db; }
+    .faq-item { margin-bottom: 12px; }
+    .faq-item strong { display: block; margin-bottom: 4px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="section card hero">
+      <div>
+        <div class="meta">{{ strategy.style_guide.get('theme', 'balanced') }} theme</div>
+        <h1>{{ content.hero_headline }}</h1>
+        <p>{{ content.hero_subheadline }}</p>
+        <div class="meta">
+          {% if content.social_proof_rating %}Rating {{ '%.2f'|format(content.social_proof_rating) }}{% endif %}
+          {% if content.social_proof_installs %} • {{ content.social_proof_installs }} installs{% endif %}
+        </div>
+        <a class="cta" href="{{ content.cta_url }}">{{ content.cta_text }}</a>
+      </div>
+      <img src="{{ content.hero_image_url }}" alt="{{ app.app_name }} icon" />
+    </section>
+
+    <section class="section card">
+      <h2>Why It Works</h2>
+      <div>
+        <span class="token">{{ style.get('bucket', 'default')|upper }}</span>
+        <span class="token">{{ style.get('typography', 'modern sans') }}</span>
+        <span class="token">{{ style.get('palette', 'modern') }}</span>
+      </div>
+      <div class="grid" style="margin-top: 10px;">
+        {% for b in content.benefits %}
+        <article class="benefit card" style="padding: 14px;">
+          <div class="token">{{ b.icon_emoji }}</div>
+          <h3>{{ b.title }}</h3>
+          <p>{{ b.description }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section card reviews">
+      <h2>{{ content.social_proof_headline }}</h2>
+      {% if content.social_proof_reviews %}
+        <div class="grid">
+          {% for r in content.social_proof_reviews %}
+          <blockquote>
+            <div><strong>{{ r.rating }}/5</strong></div>
+            <div>{{ r.text }}</div>
+            <footer class="meta" style="margin-top: 8px;">- {{ r.reviewer }}</footer>
+          </blockquote>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="meta">User review snippets are currently unavailable.</p>
+      {% endif %}
+    </section>
+
+    <section class="section card">
+      <h2>Screenshots</h2>
+      {% if content.screenshots %}
+      <div class="gallery">
+        {% for s in content.screenshots %}
+        <img src="{{ s }}" alt="app screenshot" />
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="meta">Screenshots are currently unavailable.</p>
+      {% endif %}
+    </section>
+
+    <section class="section card">
+      <h2>FAQ</h2>
+      {% for f in content.faq_items %}
+      <div class="faq-item">
+        <strong>{{ f.question }}</strong>
+        <div>{{ f.answer }}</div>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section class="section card" style="text-align:center;">
+      <h2>Ready to Try {{ app.app_name }}?</h2>
+      <a class="cta" href="{{ content.cta_url }}">{{ content.cta_text }}</a>
+    </section>
+  </main>
+</body>
+</html>

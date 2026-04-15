@@ -1,0 +1,63 @@
+{
+  "hero_headline": "Save 2+ Hours Every Day",
+  "hero_subheadline": "Automate your workflow and focus on what truly matters with Productivity Pro",
+  "hero_image_url": "https://lh3.googleusercontent.com/placeholder-icon.png",
+  "benefits": [
+    {
+      "title": "Smart Automation",
+      "description": "Set your rules once, and let the app handle repetitive tasks automatically. No more manual work.",
+      "icon_emoji": "⚡"
+    },
+    {
+      "title": "Sync Everywhere",
+      "description": "Real-time synchronization across phone, tablet, and desktop keeps everything up-to-date instantly.",
+      "icon_emoji": "☁️"
+    },
+    {
+      "title": "Team Ready",
+      "description": "Share tasks, collaborate seamlessly, and keep your team aligned without complexity.",
+      "icon_emoji": "👥"
+    },
+    {
+      "title": "Stay Focused",
+      "description": "Smart notifications ensure you're never distracted while staying fully informed of what matters.",
+      "icon_emoji": "🎯"
+    }
+  ],
+  "social_proof_headline": "Trusted by 1M+ Users Worldwide",
+  "social_proof_rating": 4.8,
+  "social_proof_installs": "1M+",
+  "social_proof_reviews": [
+    {
+      "rating": 5,
+      "text": "This app completely transformed how I organize my work. Highly recommend!",
+      "reviewer": "ProductManager2024"
+    },
+    {
+      "rating": 5,
+      "text": "Best productivity app I've ever used. The automation features save me hours daily.",
+      "reviewer": "TechEnthusiast"
+    }
+  ],
+  "screenshots": [
+    "https://lh3.googleusercontent.com/placeholder-screen1.png",
+    "https://lh3.googleusercontent.com/placeholder-screen2.png",
+    "https://lh3.googleusercontent.com/placeholder-screen3.png"
+  ],
+  "faq_items": [
+    {
+      "question": "How does the automation work?",
+      "answer": "Simply define your rules (when X happens, do Y) and the app handles everything automatically in the background 24/7."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes, we use military-grade encryption and comply with GDPR, CCPA, and international data protection standards."
+    },
+    {
+      "question": "Can multiple team members use it?",
+      "answer": "Absolutely. Create teams, assign tasks, set permissions, and collaborate in real-time across your organization."
+    }
+  ],
+  "cta_text": "Install on Google Play",
+  "cta_url": "https://play.google.com/store/apps/details?id=com.example.productivity"
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ app.app_name }}</title>
+  <style>
+    :root {
+      --primary: {{ style.get('color_primary', '#1DB954') }};
+      --secondary: {{ style.get('color_secondary', '#0B1320') }};
+      --bg: {{ style.get('color_background', '#070A0F') }};
+      --surface: {{ style.get('color_surface', '#111827') }};
+      --text: {{ style.get('color_text', '#F3F4F6') }};
+      --accent: {{ style.get('color_accent', '#8B5CF6') }};
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 8% -10%, color-mix(in srgb, var(--primary) 20%, transparent), transparent),
+        radial-gradient(800px 500px at 95% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent),
+        var(--bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    .container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      align-items: center;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      border-radius: 18px;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, var(--secondary)), color-mix(in srgb, var(--surface) 70%, var(--primary)));
+      padding: 24px;
+    }
+    h1 { margin: 8px 0 10px; font-size: 40px; line-height: 1.06; }
+    p { margin: 0; color: color-mix(in srgb, var(--text) 84%, transparent); }
+    .meta { font-size: 13px; color: color-mix(in srgb, var(--text) 65%, transparent); margin-top: 10px; }
+    .cta {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #04100a;
+      background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--accent) 38%, #fff));
+      font-weight: 700;
+    }
+    .shot-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .shot-strip img { width: 100%; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); }
+    .proof, .benefits, .faq {
+      margin-top: 16px;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
+      padding: 16px;
+    }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .benefit { border-radius: 12px; padding: 12px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); }
+    .review { border-radius: 10px; padding: 12px; border-left: 3px solid var(--primary); background: color-mix(in srgb, var(--surface) 76%, var(--secondary)); }
+    .token { display: inline-block; font-size: 11px; font-weight: 700; margin-right: 6px; padding: 4px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 24%, transparent); }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .shot-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="token">{{ style.get('template_id', 'music')|upper }}</div>
+        <h1>{{ content.hero_headline }}</h1>
+        <p>{{ content.hero_subheadline }}</p>
+        <div class="meta">
+          {% if content.social_proof_rating %}Rating {{ '%.2f'|format(content.social_proof_rating) }}{% endif %}
+          {% if content.social_proof_installs %} • {{ content.social_proof_installs }} installs{% endif %}
+        </div>
+        <a class="cta" href="{{ content.cta_url }}">{{ content.cta_text }}</a>
+      </div>
+      <div>
+        <img src="{{ content.hero_image_url }}" alt="{{ app.app_name }} icon" style="width: 112px; height: 112px; border-radius: 18px;" />
+        {% if content.screenshots %}
+        <div class="shot-strip">
+          {% for s in content.screenshots[:3] %}
+          <img src="{{ s }}" alt="app screenshot" />
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="benefits">
+      <h2>Top Reasons To Install</h2>
+      <div class="grid">
+        {% for b in content.benefits %}
+        <article class="benefit">
+          <div class="token">{{ b.icon_emoji }}</div>
+          <h3>{{ b.title }}</h3>
+          <p>{{ b.description }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="proof">
+      <h2>{{ content.social_proof_headline }}</h2>
+      <div class="grid">
+        {% for r in content.social_proof_reviews %}
+        <blockquote class="review">
+          <strong>{{ r.rating }}/5</strong>
+          <div>{{ r.text }}</div>
+          <footer class="meta">- {{ r.reviewer }}</footer>
+        </blockquote>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+      {% for f in content.faq_items %}
+      <article style="margin-bottom:10px;">
+        <strong>{{ f.question }}</strong>
+        <div>{{ f.answer }}</div>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>

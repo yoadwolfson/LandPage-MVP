@@ -1,0 +1,30 @@
+{
+  "target_audience": "Busy professionals and small business owners who want to reclaim time",
+  "tone": "Empowering, professional, and action-oriented",
+  "main_angle": "Save 2+ hours daily with intelligent task automation and cloud synchronization",
+  "top_benefits": [
+    "Automate repetitive tasks and save 2+ hours every day",
+    "Sync instantly across all your devices in real-time",
+    "Team collaboration features for seamless coordination",
+    "Smart notifications keep you focused, never overwhelmed"
+  ],
+  "selected_reviews": [
+    {
+      "rating": 5,
+      "text": "This app completely transformed how I organize my work. Highly recommend!",
+      "reviewer": "ProductManager2024"
+    },
+    {
+      "rating": 5,
+      "text": "Best productivity app I've ever used. The automation features save me hours daily.",
+      "reviewer": "TechEnthusiast"
+    }
+  ],
+  "faq_topics": [
+    "How does the automation actually work?",
+    "Is my data secure and private?",
+    "Can I use it for team collaboration?",
+    "What devices does it support?"
+  ],
+  "missing_data_flags": []
+}

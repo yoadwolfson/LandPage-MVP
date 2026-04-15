@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ app.app_name }}</title>
+  <style>
+    :root {
+      --primary: {{ style.get('color_primary', '#22D3EE') }};
+      --secondary: {{ style.get('color_secondary', '#0F172A') }};
+      --bg: {{ style.get('color_background', '#030712') }};
+      --surface: {{ style.get('color_surface', '#111827') }};
+      --text: {{ style.get('color_text', '#E5E7EB') }};
+      --accent: {{ style.get('color_accent', '#A855F7') }};
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
+    .container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .hero {
+      border: 1px solid color-mix(in srgb, var(--primary) 42%, transparent);
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--secondary) 86%, #000), color-mix(in srgb, var(--accent) 30%, #000)),
+        radial-gradient(700px 420px at 95% 0%, color-mix(in srgb, var(--primary) 24%, transparent), transparent);
+      padding: 24px;
+    }
+    .headline-row { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    h1 { margin: 8px 0 10px; font-size: 44px; line-height: 1.04; text-transform: uppercase; letter-spacing: 0.02em; }
+    .scorebar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: color-mix(in srgb, var(--surface) 55%, var(--primary));
+      border: 1px solid color-mix(in srgb, var(--primary) 52%, transparent);
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 14px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #001419;
+      background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--accent) 34%, #fff));
+      border-radius: 10px;
+      padding: 12px 20px;
+    }
+    .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .card {
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--secondary));
+    }
+    .card h2 { margin-top: 0; }
+    .track { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bonus { border-radius: 10px; padding: 10px; background: color-mix(in srgb, var(--surface) 78%, var(--accent)); }
+    .review { border-left: 3px solid var(--primary); border-radius: 8px; padding: 10px; background: color-mix(in srgb, var(--surface) 82%, var(--secondary)); }
+    .meta { color: color-mix(in srgb, var(--text) 70%, transparent); font-size: 13px; }
+    @media (max-width: 900px) {
+      .sections { grid-template-columns: 1fr; }
+      .track { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="headline-row">
+        <div>
+          <div class="pill">{{ style.get('template_id', 'gaming')|upper }}</div>
+          <h1>{{ content.hero_headline }}</h1>
+          <p>{{ content.hero_subheadline }}</p>
+          <div class="scorebar">
+            {% if content.social_proof_rating %}<span class="pill">RATING {{ '%.2f'|format(content.social_proof_rating) }}</span>{% endif %}
+            {% if content.social_proof_installs %}<span class="pill">{{ content.social_proof_installs }} INSTALLS</span>{% endif %}
+          </div>
+          <a class="cta" href="{{ content.cta_url }}">{{ content.cta_text }}</a>
+        </div>
+        <img src="{{ content.hero_image_url }}" alt="{{ app.app_name }} icon" style="width: 120px; height: 120px; border-radius: 20px;" />
+      </div>
+    </section>
+
+    <section class="sections">
+      <article class="card">
+        <h2>Power-Ups</h2>
+        <div class="track">
+          {% for b in content.benefits %}
+          <div class="bonus">
+            <strong>{{ b.icon_emoji }} {{ b.title }}</strong>
+            <div>{{ b.description }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>{{ content.social_proof_headline }}</h2>
+        {% for r in content.social_proof_reviews %}
+        <blockquote class="review">
+          <strong>{{ r.rating }}/5</strong>
+          <div>{{ r.text }}</div>
+          <footer class="meta">- {{ r.reviewer }}</footer>
+        </blockquote>
+        {% endfor %}
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Mission Brief</h2>
+      {% for f in content.faq_items %}
+      <article style="margin-bottom:10px;">
+        <strong>{{ f.question }}</strong>
+        <div>{{ f.answer }}</div>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>

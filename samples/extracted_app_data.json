@@ -1,0 +1,34 @@
+{
+  "app_id": "com.example.productivity",
+  "app_name": "Productivity Pro",
+  "short_description": "The ultimate app for managing your daily tasks and boosting productivity",
+  "full_description": "Productivity Pro is a comprehensive task management and automation platform designed for busy professionals. With intelligent scheduling, automated reminders, cloud sync, and team collaboration features, Productivity Pro helps you save time and focus on what matters most. Features include: real-time sync across all devices, smart notifications, recurring tasks, team sharing, and detailed analytics.",
+  "icon_url": "https://lh3.googleusercontent.com/placeholder-icon.png",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/placeholder-screen1.png",
+    "https://lh3.googleusercontent.com/placeholder-screen2.png",
+    "https://lh3.googleusercontent.com/placeholder-screen3.png"
+  ],
+  "rating": 4.8,
+  "installs": "1M+",
+  "reviews": [
+    {
+      "rating": 5,
+      "text": "This app completely transformed how I organize my work. Highly recommend!",
+      "reviewer": "ProductManager2024"
+    },
+    {
+      "rating": 5,
+      "text": "Best productivity app I've ever used. The automation features save me hours daily.",
+      "reviewer": "TechEnthusiast"
+    },
+    {
+      "rating": 4,
+      "text": "Great app, but could use better offline support",
+      "reviewer": "DavidS"
+    }
+  ],
+  "last_updated": "2024-01-15",
+  "current_version": "2.5.1",
+  "min_android_version": "7.0"
+}
