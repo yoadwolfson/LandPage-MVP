@@ -1,202 +1,59 @@
-# LandPage MVP - Agent Architecture
+# LandPage MVP
 
-A CLI-based agent system that generates professional marketing landing pages for Google Play apps by orchestrating 3 specialized sub-agents.
+LandPage MVP turns a Google Play app URL into a polished landing page. It is built as a small 3-agent pipeline and can be run manually or through a simple terminal UI.
 
-## Quick Start
+## How To Use
 
-```bash
-# 1. Setup
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+### Manual Run
 
-# 2. Create .env file
-cp .env.example .env
-# Edit .env and add your OPENAI_API_KEY
-
-# 3. Run
-python agent/main.py "https://play.google.com/store/apps/details?id=com.example.app"
-
-# 4. Check outputs
-# Generated HTML: outputs/{run_id}.html
-# Artifacts: runs/{run_id}/
-```
-
-## Architecture
-
-### 3-Agent Pipeline
-
-```
-Google Play URL
-     ↓
-[Agent 1: Extractor]  → Scrapes app metadata, reviews, screenshots
-     ↓
-extracted_app_data.json
-     ↓
-[Agent 2: Analyzer]   → Decides content strategy and messaging
-     ↓
-content_strategy.json
-     ↓
-[Agent 3: Composer]   → Generates final landing page content
-     ↓
-landing_page_content.json
-     ↓
-[Renderer]            → Renders Jinja2 HTML template
-     ↓
-index.html (mobile-friendly)
-```
-
-### Data Contracts
-
-All agents use **Pydantic models** with strict validation:
-
-- **ExtractedAppData**: Raw data from Play Store
-- **ContentStrategy**: Content decisions and messaging angle
-- **LandingPageContent**: Final content ready for rendering
-- **PipelineOutput**: Complete pipeline result with all artifacts
-
-See [schemas/models.py](schemas/models.py) for detailed field definitions.
-
-### Sample Data
-
-Reference sample JSON files in `samples/` folder to understand expected format:
-- `samples/extracted_app_data.json` - Extractor output
-- `samples/content_strategy.json` - Analyzer output
-- `samples/landing_page_content.json` - Composer output
-
-## Project Structure
-
-```
-LandPage-MVP/
-├── agent/
-│   ├── main.py              # CLI entry point
-│   ├── orchestrator.py      # Pipeline orchestration (TODO)
-│   ├── extractor.py         # Extractor agent (TODO)
-│   ├── analyzer.py          # Analyzer agent (TODO)
-│   └── composer.py          # Composer agent (TODO)
-├── schemas/
-│   └── models.py            # Pydantic models
-├── templates/
-│   └── landing.html.jinja2  # HTML template (TODO)
-├── samples/
-│   ├── extracted_app_data.json
-│   ├── content_strategy.json
-│   └── landing_page_content.json
-├── outputs/                 # Generated HTML files
-├── runs/                    # Pipeline artifacts (JSON per stage)
-├── requirements.txt
-├── .env.example
-└── README.md
-```
-
-## Agents Overview
-
-### 1. Extractor Agent
-**Task**: Extract app metadata from Google Play page  
-**Input**: Google Play URL  
-**Output**: `ExtractedAppData` JSON  
-**Technology**: Playwright + BeautifulSoup4
-
-Scrapes:
-- App name, description, icon, screenshots
-- Rating, install count
-- User reviews (stores rating + text)
-
-### 2. Analyzer Agent
-**Task**: Analyze data and decide content strategy  
-**Input**: `ExtractedAppData`  
-**Output**: `ContentStrategy` JSON  
-**Technology**: OpenAI GPT API
-
-Determines:
-- Target audience
-- Messaging tone
-- Main value proposition
-- Top 3-5 benefits
-- High-signal reviews (rating >= 4.5)
-- FAQ topics
-
-### 3. Composer Agent
-**Task**: Generate final landing page content  
-**Input**: `ExtractedAppData` + `ContentStrategy`  
-**Output**: `LandingPageContent` JSON  
-**Technology**: OpenAI GPT API
-
-Generates:
-- Hero headline + subheadline
-- Benefit cards with emojis
-- Social proof section
-- FAQ items
-- CTA button text
-
-## Environment Variables
-
-Create `.env` file (copy from `.env.example`):
-
-```
-OPENAI_API_KEY=sk-...your-key...
-LOG_LEVEL=INFO
-```
-
-## Output Structure
-
-Each run generates:
-
-```
-outputs/
-└── run_20240115_143052.html          # Final landing page
-
-runs/
-└── run_20240115_143052/
-    ├── extracted.json                # Stage 1 output
-    ├── strategy.json                 # Stage 2 output
-    ├── landing_content.json          # Stage 3 output
-    └── pipeline_output.json          # Complete metadata
-```
-
-## Development
-
-### Testing Pydantic Models
-
-```python
-from schemas.models import ExtractedAppData
-import json
-
-# Load sample data
-with open('samples/extracted_app_data.json') as f:
-    data = json.load(f)
-
-# Validate
-app_data = ExtractedAppData(**data)
-print(app_data.model_dump_json(indent=2))
-```
-
-### Running Individual Agents (TODO)
+Use this when you want to generate a single landing page from one app URL.
 
 ```bash
-# Test extractor only
-python -m agent.extractor "https://play.google.com/..."
-
-# Test analyzer
-python -m agent.analyzer samples/extracted_app_data.json
-
-# Test composer
-python -m agent.composer samples/extracted_app_data.json samples/content_strategy.json
+python run.py "https://play.google.com/store/apps/details?id=com.example.app"
 ```
 
-## Next Steps
+### Terminal UI
 
-- [ ] Implement Extractor agent (Playwright scraping)
-- [ ] Implement Analyzer agent (OpenAI analysis)
-- [ ] Implement Composer agent (OpenAI content generation)
-- [ ] Implement Orchestrator (pipeline coordination)
-- [ ] Create HTML template (Jinja2)
-- [ ] Add error handling and retries
-- [ ] Test with real Google Play URLs
+Use this when you want a guided menu or a demo batch.
 
-## Bonus Features (If Time)
+```bash
+python terminal_ui.py
+```
 
-- URL-based caching (same URL = cached result)
-- Language support (EN/HE)
-- Score report (why these benefits/reviews were selected)
-- Stripe subscription CTA mode (future)
+In the menu:
+- `1` runs one app URL
+- `2` runs multiple URLs you paste in
+- `3` runs the demo set
+- `4` opens the latest HTML outputs
+- `5` cleanup mode (clear `runs/` and `outputs/` for fresh testing)
+
+## What Happens In The Pipeline
+
+1. **Extractor** pulls app data from Google Play, including name, description, screenshots, installs, rating, and reviews.
+2. **Analyzer** reads the extracted data and uses the analyzer prompt plus OpenAI to choose the angle, benefits, layout, and review strategy.
+3. **Composer** turns the strategy into final landing-page content. It loads the composer prompt, then builds the hero, benefits, proof, FAQ, and CTA copy.
+4. **Renderer** applies the Jinja2 template and writes the final HTML page.
+
+## Main Features
+
+- Terminal UI for single URL, multi URL, and demo runs.
+- Style-aware templates (music, gaming, finance, productivity, default).
+- Improved review filtering for marketing quality:
+  - Blocks complaint patterns like `annoying`, and `deleted`.
+  - Keeps social proof focused on clearly positive reviews.
+
+## Outputs
+
+Each run creates:
+
+- `outputs/{run_id}.html` for the rendered landing page
+- `runs/{run_id}/extracted.json`
+- `runs/{run_id}/strategy.json`
+- `runs/{run_id}/landing_content.json`
+- `runs/{run_id}/pipeline_output.json`
+
+## Notes
+
+- The analyzer prompt is actively used in the OpenAI strategy step.
+- The composer prompt is loaded by the composer stage, and the extractor works directly from Google Play data.
+- Generated folders such as `runs/` and `outputs/` can be cleaned when you want a fresh workspace.

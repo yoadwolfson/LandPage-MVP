@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ app.app_name }}</title>
   <style>
+    {% set hero_layout = style.get('hero_layout', 'full-width') %}
+    {% set card_layout = style.get('card_layout', 'grid') %}
+    {% set typography_density = style.get('typography_density', 'spacious') %}
+    {% set section_order = style.get('section_order', 'visual-first') %}
+    {% set visual_intensity = style.get('visual_intensity', 'high') %}
+    
     :root {
       --primary: {{ style.get('color_primary', '#22D3EE') }};
       --secondary: {{ style.get('color_secondary', '#0F172A') }};
@@ -12,10 +18,24 @@
       --surface: {{ style.get('color_surface', '#111827') }};
       --text: {{ style.get('color_text', '#E5E7EB') }};
       --accent: {{ style.get('color_accent', '#A855F7') }};
+      {% if typography_density == 'compact' %}
+      --h1-size: 36px;
+      --h2-size: 20px;
+      --padding: 12px;
+      {% elif typography_density == 'spacious' %}
+      --h1-size: 52px;
+      --h2-size: 28px;
+      --padding: 24px;
+      {% else %}
+      --h1-size: 44px;
+      --h2-size: 24px;
+      --padding: 14px;
+      {% endif %}
     }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
     .container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .flow { display: flex; flex-direction: column; }
     .hero {
       border: 1px solid color-mix(in srgb, var(--primary) 42%, transparent);
       border-radius: 18px;
@@ -23,17 +43,32 @@
         linear-gradient(145deg, color-mix(in srgb, var(--secondary) 86%, #000), color-mix(in srgb, var(--accent) 30%, #000)),
         radial-gradient(700px 420px at 95% 0%, color-mix(in srgb, var(--primary) 24%, transparent), transparent);
       padding: 24px;
+      {% if visual_intensity == 'high' %}
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.40);
+      {% elif visual_intensity == 'low' %}
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.20);
+      {% else %}
+      box-shadow: 0 11px 26px rgba(0, 0, 0, 0.30);
+      {% endif %}
     }
-    .headline-row { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-    h1 { margin: 8px 0 10px; font-size: 44px; line-height: 1.04; text-transform: uppercase; letter-spacing: 0.02em; }
+    .headline-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    h1 { margin: 8px 0 10px; font-size: var(--h1-size); line-height: 1.04; text-transform: uppercase; letter-spacing: 0.02em; }
+    h2 { font-size: var(--h2-size); }
     .scorebar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
     .pill {
       padding: 6px 10px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
-      background: color-mix(in srgb, var(--surface) 55%, var(--primary));
-      border: 1px solid color-mix(in srgb, var(--primary) 52%, transparent);
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
     }
     .cta {
       display: inline-block;
@@ -49,13 +84,17 @@
     .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
     .card {
       border-radius: 14px;
-      padding: 14px;
+      padding: var(--padding);
       border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
       background: color-mix(in srgb, var(--surface) 92%, var(--secondary));
     }
     .card h2 { margin-top: 0; }
+    {% if card_layout == 'list' %}
+    .track { display: grid; gap: 10px; grid-template-columns: 1fr; }
+    {% else %}
     .track { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .bonus { border-radius: 10px; padding: 10px; background: color-mix(in srgb, var(--surface) 78%, var(--accent)); }
+    {% endif %}
+    .bonus { border-radius: 10px; padding: var(--padding); background: color-mix(in srgb, var(--surface) 78%, var(--accent)); }
     .review { border-left: 3px solid var(--primary); border-radius: 8px; padding: 10px; background: color-mix(in srgb, var(--surface) 82%, var(--secondary)); }
     .meta { color: color-mix(in srgb, var(--text) 70%, transparent); font-size: 13px; }
     @media (max-width: 900px) {
@@ -83,8 +122,9 @@
       </div>
     </section>
 
-    <section class="sections">
-      <article class="card">
+    <div class="flow">
+    <section class="sections" style="order:{% if section_order == 'proof-first' %}2{% else %}3{% endif %};">
+      <article class="card" style="order:{% if section_order == 'proof-first' %}2{% else %}1{% endif %};">
         <h2>Power-Ups</h2>
         <div class="track">
           {% for b in content.benefits %}
@@ -96,7 +136,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" style="order:{% if section_order == 'proof-first' %}1{% else %}2{% endif %};">
         <h2>{{ content.social_proof_headline }}</h2>
         {% for r in content.social_proof_reviews %}
         <blockquote class="review">
@@ -108,7 +148,18 @@
       </article>
     </section>
 
-    <section class="card" style="margin-top:14px;">
+    {% if content.screenshots %}
+    <section class="card" style="margin-top:14px; order:{% if section_order == 'visual-first' %}1{% elif section_order == 'proof-first' %}3{% else %}2{% endif %};">
+      <h2>Screenshots</h2>
+      <div class="track">
+        {% for s in content.screenshots[:3] %}
+        <img src="{{ s }}" alt="app screenshot" style="width:100%; border-radius:12px; border:1px solid color-mix(in srgb, var(--text) 20%, transparent);" />
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section class="card" style="margin-top:14px; order:4;">
       <h2>Mission Brief</h2>
       {% for f in content.faq_items %}
       <article style="margin-bottom:10px;">
@@ -117,6 +168,7 @@
       </article>
       {% endfor %}
     </section>
+    </div>
   </main>
 </body>
 </html>

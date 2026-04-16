@@ -167,7 +167,11 @@ class Pipeline:
             raise PipelineStageError("extractor", "Failed to extract app data", str(e))
 
     async def run_analyzer(
-        self, extracted_data: ExtractedAppData, run_id: str
+        self,
+        extracted_data: ExtractedAppData,
+        run_id: str,
+        analysis_model: str | None = None,
+        analysis_max_output_tokens: int | None = None,
     ) -> ContentStrategy:
         """Step 2: Run Analyzer Agent."""
         logger.info("\n" + "=" * 60)
@@ -176,7 +180,11 @@ class Pipeline:
 
         try:
             strategy = self._run_with_retry(
-                lambda: analyze_content_strategy(extracted_data),
+                lambda: analyze_content_strategy(
+                    extracted_data,
+                    model_name=analysis_model,
+                    max_output_tokens=analysis_max_output_tokens,
+                ),
                 stage="analyzer",
                 retries=1,
             )
@@ -188,6 +196,10 @@ class Pipeline:
             logger.info(f"   Selected reviews: {len(strategy.selected_reviews)}")
             if strategy.style_guide:
                 logger.info(f"   Style bucket: {strategy.style_guide.get('bucket', 'unknown')}")
+            if analysis_model:
+                logger.info(f"   Analyzer model: {analysis_model}")
+            if analysis_max_output_tokens:
+                logger.info(f"   Analyzer max tokens: {analysis_max_output_tokens}")
 
             return strategy
 
@@ -316,7 +328,12 @@ class Pipeline:
 </body>
 </html>"""
 
-    async def orchestrate(self, google_play_url: str) -> PipelineOutput:
+    async def orchestrate(
+        self,
+        google_play_url: str,
+        analysis_model: str | None = None,
+        analysis_max_output_tokens: int | None = None,
+    ) -> PipelineOutput:
         """
         Main orchestration function.
         Runs: Extractor → Analyzer → Composer
@@ -331,7 +348,12 @@ class Pipeline:
             extracted_data = await self.run_extractor(google_play_url, run_id)
 
             # Stage 2: Analyze
-            strategy = await self.run_analyzer(extracted_data, run_id)
+            strategy = await self.run_analyzer(
+                extracted_data,
+                run_id,
+                analysis_model=analysis_model,
+                analysis_max_output_tokens=analysis_max_output_tokens,
+            )
 
             # Stage 3: Compose
             landing_content = await self.run_composer(
@@ -381,8 +403,20 @@ class Pipeline:
             raise
 
 
-def orchestrate_pipeline(google_play_url: str, runs_dir: str = "runs", outputs_dir: str = "outputs") -> PipelineOutput:
+def orchestrate_pipeline(
+    google_play_url: str,
+    runs_dir: str = "runs",
+    outputs_dir: str = "outputs",
+    analysis_model: str | None = None,
+    analysis_max_output_tokens: int | None = None,
+) -> PipelineOutput:
     """Simple stage-5 entrypoint: get URL, run extractor->analyzer->composer workflow."""
     pipeline = Pipeline(runs_dir=runs_dir, outputs_dir=outputs_dir)
     import asyncio
-    return asyncio.run(pipeline.orchestrate(google_play_url))
+    return asyncio.run(
+        pipeline.orchestrate(
+            google_play_url,
+            analysis_model=analysis_model,
+            analysis_max_output_tokens=analysis_max_output_tokens,
+        )
+    )

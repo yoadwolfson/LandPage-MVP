@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ app.app_name }}</title>
   <style>
+    {% set hero_layout = style.get('hero_layout', 'full-width') %}
+    {% set card_layout = style.get('card_layout', 'grid') %}
+    {% set typography_density = style.get('typography_density', 'normal') %}
+    {% set content_emphasis = style.get('content_emphasis', 'text') %}
+    {% set section_order = style.get('section_order', 'benefit-first') %}
+    {% set visual_intensity = style.get('visual_intensity', 'medium') %}
+    
     :root {
       --primary: {{ style.get('color_primary', '#4F46E5') }};
       --secondary: {{ style.get('color_secondary', '#1F2937') }};
@@ -12,6 +19,19 @@
       --surface: {{ style.get('color_surface', '#FFFFFF') }};
       --text: {{ style.get('color_text', '#111827') }};
       --accent: {{ style.get('color_accent', '#06B6D4') }};
+      {% if typography_density == 'compact' %}
+      --heading-size: 28px;
+      --body-size: 14px;
+      --padding: 14px;
+      {% elif typography_density == 'spacious' %}
+      --heading-size: 40px;
+      --body-size: 16px;
+      --padding: 28px;
+      {% else %}
+      --heading-size: 34px;
+      --body-size: 15px;
+      --padding: 20px;
+      {% endif %}
     }
     * { box-sizing: border-box; }
     body {
@@ -20,18 +40,44 @@
       color: var(--text);
       background: radial-gradient(1200px 600px at 15% -10%, color-mix(in srgb, var(--primary) 14%, transparent), transparent), var(--bg);
       line-height: 1.5;
+      font-size: var(--body-size);
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    .section { margin: 20px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: var(--padding); }
+    .flow { display: flex; flex-direction: column; gap: 0; }
+    .section { margin: var(--padding) 0; }
     .card {
       background: var(--surface);
       border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
       border-radius: 14px;
-      padding: 20px;
+      padding: var(--padding);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     }
-    .hero { display: grid; gap: 16px; align-items: center; grid-template-columns: 1fr auto; }
-    .hero img { width: 108px; height: 108px; border-radius: 20px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: flex-start;
+      {% if visual_intensity == 'high' %}
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      {% elif visual_intensity == 'low' %}
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      {% else %}
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+      {% endif %}
+    }
+    .hero img {
+      {% if hero_layout == 'minimal' %}
+      width: 80px;
+      height: 80px;
+      {% else %}
+      width: 108px;
+      height: 108px;
+      {% endif %}
+      border-radius: 20px;
+    }
+    h1 { margin: 0 0 10px 0; font-size: var(--heading-size); }
+    h2 { font-size: calc(var(--heading-size) - 6px); }
+    p { margin: 0; color: color-mix(in srgb, var(--text) 80%, transparent); }
     .cta {
       display: inline-block;
       margin-top: 10px;
@@ -42,23 +88,43 @@
       text-decoration: none;
       font-weight: 600;
     }
-    .meta { color: color-mix(in srgb, var(--text) 65%, transparent); font-size: 14px; }
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .benefit h3 { margin: 0 0 8px 0; font-size: 17px; }
+    .meta { color: color-mix(in srgb, var(--text) 65%, transparent); font-size: calc(var(--body-size) - 1px); }
+    
+    {% if card_layout == 'list' %}
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    {% elif card_layout == 'carousel' %}
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; overflow-x: auto; }
+    {% else %}
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    {% endif %}
+    
+    .benefits-section {
+      margin-top: var(--padding);
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
+      padding: 20px;
+    }
+    
+    .benefit { border-radius: 12px; padding: 14px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); display: flex; flex-direction: column; }
+    .benefit h3 { margin: 8px 0 8px 0; font-size: calc(var(--heading-size) - 12px); }
+    .benefit p { word-wrap: break-word; overflow-wrap: break-word; flex-grow: 1; margin: 0; }
     .token {
       display: inline-block;
       font-size: 11px;
-      background: color-mix(in srgb, var(--accent) 18%, #fff);
-      color: color-mix(in srgb, var(--secondary) 85%, #000);
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);       
       border-radius: 999px;
       padding: 4px 8px;
       margin-right: 6px;
       margin-bottom: 6px;
       font-weight: 600;
+      width: fit-content;
     }
     .reviews blockquote {
       margin: 0;
-      padding: 12px;
+      padding: var(--padding);
       border-left: 3px solid var(--accent);
       background: color-mix(in srgb, var(--surface) 92%, var(--accent));
       border-radius: 8px;
@@ -67,10 +133,14 @@
     }
     .reviews blockquote div { color: var(--text); }
     .reviews blockquote footer { color: color-mix(in srgb, var(--text) 70%, transparent); }
-    .gallery { display: grid; gap: 10px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .gallery img { width: 100%; border-radius: 10px; border: 1px solid #d1d5db; }
+    .gallery { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .gallery img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; border: 1px solid #d1d5db; }
     .faq-item { margin-bottom: 12px; }
     .faq-item strong { display: block; margin-bottom: 4px; }
+    
+    .section-title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .vibe { font-size: 12px; border-radius: 999px; padding: 4px 8px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); color: color-mix(in srgb, var(--text) 74%, transparent); }
+    
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
@@ -82,7 +152,7 @@
   <main class="container">
     <section class="section card hero">
       <div>
-        <div class="meta">{{ strategy.style_guide.get('theme', 'balanced') }} theme</div>
+        <div class="meta">{{ app.developer_name }}</div>
         <h1>{{ content.hero_headline }}</h1>
         <p>{{ content.hero_subheadline }}</p>
         <div class="meta">
@@ -94,16 +164,14 @@
       <img src="{{ content.hero_image_url }}" alt="{{ app.app_name }} icon" />
     </section>
 
-    <section class="section card">
+    <div class="flow">
+    <section class="section benefits-section" style="order:{% if section_order == 'proof-first' %}3{% elif section_order == 'visual-first' %}2{% else %}2{% endif %};">
+      <div class="section-title-row">
       <h2>Why It Works</h2>
-      <div>
-        <span class="token">{{ style.get('bucket', 'default')|upper }}</span>
-        <span class="token">{{ style.get('typography', 'modern sans') }}</span>
-        <span class="token">{{ style.get('palette', 'modern') }}</span>
       </div>
-      <div class="grid" style="margin-top: 10px;">
+      <div class="grid">
         {% for b in content.benefits %}
-        <article class="benefit card" style="padding: 14px;">
+        <article class="benefit">
           <div class="token">{{ b.icon_emoji }}</div>
           <h3>{{ b.title }}</h3>
           <p>{{ b.description }}</p>
@@ -112,7 +180,7 @@
       </div>
     </section>
 
-    <section class="section card reviews">
+    <section class="section card reviews" style="order:{% if section_order == 'proof-first' %}2{% elif section_order == 'visual-first' %}4{% else %}3{% endif %};">
       <h2>{{ content.social_proof_headline }}</h2>
       {% if content.social_proof_reviews %}
         <div class="grid">
@@ -125,24 +193,24 @@
           {% endfor %}
         </div>
       {% else %}
-        <p class="meta">User review snippets are currently unavailable.</p>
+        <p class="meta">{{ strategy.main_angle }}</p>
       {% endif %}
     </section>
 
-    <section class="section card">
-      <h2>Screenshots</h2>
-      {% if content.screenshots %}
-      <div class="gallery">
-        {% for s in content.screenshots %}
-        <img src="{{ s }}" alt="app screenshot" />
-        {% endfor %}
+    {% if content.screenshots %}
+    <section class="section" style="order:{% if section_order == 'visual-first' %}3{% elif section_order == 'proof-first' %}4{% else %}4{% endif %};">
+      <h2>App In Action</h2>
+      <div class="benefits-section" style="background: transparent; border: none; padding: 0;">
+        <div class="grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          {% for s in content.screenshots[:6] %}
+          <img src="{{ s }}" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          {% endfor %}
+        </div>
       </div>
-      {% else %}
-      <p class="meta">Screenshots are currently unavailable.</p>
-      {% endif %}
     </section>
+    {% endif %}
 
-    <section class="section card">
+    <section class="section card" style="order:5;">
       <h2>FAQ</h2>
       {% for f in content.faq_items %}
       <div class="faq-item">
@@ -152,10 +220,11 @@
       {% endfor %}
     </section>
 
-    <section class="section card" style="text-align:center;">
+    <section class="section card" style="text-align:center; order:6;">
       <h2>Ready to Try {{ app.app_name }}?</h2>
       <a class="cta" href="{{ content.cta_url }}">{{ content.cta_text }}</a>
     </section>
+    </div>
   </main>
 </body>
 </html>

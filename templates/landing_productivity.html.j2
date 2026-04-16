@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ app.app_name }}</title>
   <style>
+    {% set hero_layout = style.get('hero_layout', 'full-width') %}
+    {% set card_layout = style.get('card_layout', 'list') %}
+    {% set typography_density = style.get('typography_density', 'compact') %}
+    {% set section_order = style.get('section_order', 'benefits-first') %}
+    {% set visual_intensity = style.get('visual_intensity', 'medium') %}
+    
     :root {
       --primary: {{ style.get('color_primary', '#2563EB') }};
       --secondary: {{ style.get('color_secondary', '#334155') }};
@@ -12,18 +18,45 @@
       --surface: {{ style.get('color_surface', '#FFFFFF') }};
       --text: {{ style.get('color_text', '#0F172A') }};
       --accent: {{ style.get('color_accent', '#F59E0B') }};
+      {% if typography_density == 'spacious' %}
+      --h1-size: 40px;
+      --padding: 20px;
+      {% elif typography_density == 'normal' %}
+      --h1-size: 32px;
+      --padding: 16px;
+      {% else %}
+      --h1-size: 28px;
+      --padding: 14px;
+      {% endif %}
     }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--bg); }
     .container { max-width: 1040px; margin: 0 auto; padding: 24px; }
-    .layout { display: grid; gap: 14px; grid-template-columns: 2fr 1fr; }
+    .flow { display: flex; flex-direction: column; }
+    .layout {
+      display: grid;
+      gap: 14px;
+      {% if card_layout == 'list' %}
+      grid-template-columns: 1fr;
+      {% else %}
+      grid-template-columns: 2fr 1fr;
+      {% endif %}
+    }
     .card {
       border-radius: 14px;
       border: 1px solid color-mix(in srgb, var(--secondary) 14%, transparent);
       background: var(--surface);
-      padding: 16px;
+      padding: var(--padding);
+      {% if visual_intensity == 'high' %}
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+      {% elif visual_intensity == 'low' %}
+      box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06);
+      {% else %}
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.10);
+      {% endif %}
     }
-    h1 { margin: 8px 0 8px; font-size: 35px; }
+    h1 { margin: 8px 0 8px; font-size: var(--h1-size); }
+    h2 { font-size: calc(var(--h1-size) - 6px); }
     p { margin: 0; color: color-mix(in srgb, var(--text) 84%, transparent); }
     .cta {
       display: inline-block;
@@ -55,17 +88,21 @@
         <p>{{ content.hero_subheadline }}</p>
         <a class="cta" href="{{ content.cta_url }}">{{ content.cta_text }}</a>
       </article>
+      {% if card_layout != 'list' %}
       <article class="card">
         <strong>Quick Facts</strong>
         <ul class="checklist">
           <li>Bucket: {{ style.get('bucket', 'default') }}</li>
-          <li>Rating: {% if content.social_proof_rating %}{{ '%.2f'|format(content.social_proof_rating) }}{% else %}N/A{% endif %}</li>
-          <li>Installs: {{ content.social_proof_installs or 'N/A' }}</li>
+          {% if content.social_proof_rating %}<li>Rating: {{ '%.2f'|format(content.social_proof_rating) }}</li>{% endif %}
+          {% if content.social_proof_installs %}<li>Installs: {{ content.social_proof_installs }}</li>{% endif %}
+          <li>Main Value: {{ strategy.main_angle }}</li>
         </ul>
       </article>
+      {% endif %}
     </section>
 
-    <section class="card" style="margin-top:14px;">
+    <div class="flow">
+    <section class="card" style="margin-top:14px; order:{% if section_order == 'benefits-first' %}1{% else %}3{% endif %};">
       <h2>Core Benefits</h2>
       <ul class="checklist">
         {% for b in content.benefits %}
@@ -74,19 +111,34 @@
       </ul>
     </section>
 
-    <section class="layout" style="margin-top:14px;">
-      <article class="card">
-        <h2>{{ content.social_proof_headline }}</h2>
-        {% for r in content.social_proof_reviews %}
-        <blockquote class="review">
-          <strong>{{ r.rating }}/5</strong>
-          <div>{{ r.text }}</div>
-          <footer class="mini">- {{ r.reviewer }}</footer>
-        </blockquote>
+    {% if content.screenshots %}
+    <section class="card" style="margin-top:14px; order:{% if section_order == 'visual-first' %}1{% elif section_order == 'proof-first' %}3{% else %}2{% endif %};">
+      <h2>Screenshots</h2>
+      <div class="layout">
+        {% for s in content.screenshots[:2] %}
+        <img src="{{ s }}" alt="app screenshot" style="width:100%; border-radius:12px; border:1px solid color-mix(in srgb, var(--secondary) 14%, transparent);" />
         {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section class="layout" style="margin-top:14px; order:{% if section_order == 'proof-first' %}1{% else %}3{% endif %};">
+      <article class="card" style="order:{% if section_order == 'proof-first' %}1{% else %}2{% endif %};">
+        <h2>{{ content.social_proof_headline }}</h2>
+        {% if content.social_proof_reviews %}
+          {% for r in content.social_proof_reviews %}
+          <blockquote class="review">
+            <strong>{{ r.rating }}/5</strong>
+            <div>{{ r.text }}</div>
+            <footer class="mini">- {{ r.reviewer }}</footer>
+          </blockquote>
+          {% endfor %}
+        {% else %}
+          <p>{{ strategy.main_angle }}</p>
+        {% endif %}
       </article>
 
-      <article class="card faq">
+      <article class="card faq" style="order:{% if section_order == 'proof-first' %}2{% else %}1{% endif %};">
         <h2>FAQ</h2>
         {% for f in content.faq_items %}
         <article>
@@ -96,6 +148,7 @@
         {% endfor %}
       </article>
     </section>
+    </div>
   </main>
 </body>
 </html>

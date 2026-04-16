@@ -10,6 +10,7 @@ class ExtractedAppData(BaseModel):
     """
     app_id: str = Field(..., description="Google Play app ID (e.g., com.example.app)")
     app_name: str = Field(..., description="App name as shown on Play Store")
+    developer_name: Optional[str] = Field(default=None, description="App maker / developer name")
     short_description: str = Field(..., description="Brief one-liner description")
     full_description: str = Field(..., description="Complete detailed description")
     icon_url: str = Field(..., description="URL to app icon image")
@@ -29,6 +30,7 @@ class ExtractedAppData(BaseModel):
             "example": {
                 "app_id": "com.example.app",
                 "app_name": "Example App",
+                "developer_name": "Example Studio",
                 "short_description": "The best example app ever",
                 "full_description": "This is a detailed description...",
                 "icon_url": "https://example.com/icon.png",
@@ -78,6 +80,14 @@ class ContentStrategy(BaseModel):
         default_factory=dict,
         description="Visual style decisions for the landing page (theme/palette/typography/direction)"
     )
+    strategy_source: str = Field(
+        default="fallback_rules",
+        description="Source of strategy generation: openai or fallback_rules"
+    )
+    fallback_reason: Optional[str] = Field(
+        default=None,
+        description="Why fallback was used when strategy_source=fallback_rules"
+    )
     
     class Config:
         json_schema_extra = {
@@ -107,7 +117,9 @@ class ContentStrategy(BaseModel):
                     "color_surface": "#FFFFFF",
                     "color_text": "#0F172A",
                     "color_accent": "#F59E0B"
-                }
+                },
+                "strategy_source": "openai",
+                "fallback_reason": None
             }
         }
 

@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ app.app_name }}</title>
   <style>
+    {% set hero_layout = style.get('hero_layout', 'split') %}
+    {% set card_layout = style.get('card_layout', 'carousel') %}
+    {% set typography_density = style.get('typography_density', 'spacious') %}
+    {% set section_order = style.get('section_order', 'visual-first') %}
+    {% set visual_intensity = style.get('visual_intensity', 'high') %}
+    
     :root {
       --primary: {{ style.get('color_primary', '#1DB954') }};
       --secondary: {{ style.get('color_secondary', '#0B1320') }};
@@ -12,6 +18,19 @@
       --surface: {{ style.get('color_surface', '#111827') }};
       --text: {{ style.get('color_text', '#F3F4F6') }};
       --accent: {{ style.get('color_accent', '#8B5CF6') }};
+      {% if typography_density == 'compact' %}
+      --h1-size: 32px;
+      --h2-size: 20px;
+      --spacing: 10px;
+      {% elif typography_density == 'spacious' %}
+      --h1-size: 48px;
+      --h2-size: 28px;
+      --spacing: 20px;
+      {% else %}
+      --h1-size: 40px;
+      --h2-size: 24px;
+      --spacing: 16px;
+      {% endif %}
     }
     * { box-sizing: border-box; }
     body {
@@ -24,22 +43,31 @@
       font-family: "Segoe UI", Arial, sans-serif;
     }
     .container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .flow { display: flex; flex-direction: column; }
     .hero {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
-      gap: 20px;
-      align-items: center;
+      gap: var(--spacing);
+      align-items: flex-start;
       border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
       border-radius: 18px;
       background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, var(--secondary)), color-mix(in srgb, var(--surface) 70%, var(--primary)));
       padding: 24px;
+      {% if visual_intensity == 'high' %}
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+      {% elif visual_intensity == 'low' %}
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.22);
+      {% else %}
+      box-shadow: 0 11px 26px rgba(0, 0, 0, 0.30);
+      {% endif %}
     }
-    h1 { margin: 8px 0 10px; font-size: 40px; line-height: 1.06; }
+    h1 { margin: 8px 0 10px; font-size: var(--h1-size); line-height: 1.06; }
+    h2 { font-size: var(--h2-size); }
     p { margin: 0; color: color-mix(in srgb, var(--text) 84%, transparent); }
     .meta { font-size: 13px; color: color-mix(in srgb, var(--text) 65%, transparent); margin-top: 10px; }
     .cta {
       display: inline-block;
-      margin-top: 14px;
+      margin-top: var(--spacing);
       padding: 12px 20px;
       border-radius: 999px;
       text-decoration: none;
@@ -50,21 +78,37 @@
     .shot-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 14px;
+      gap: var(--spacing);
+      margin-top: var(--spacing);
     }
     .shot-strip img { width: 100%; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); }
     .proof, .benefits, .faq {
-      margin-top: 16px;
+      margin-top: var(--spacing);
       border-radius: 14px;
       border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
       background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
       padding: 16px;
     }
-    .grid { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    {% if card_layout == 'list' %}
+    .grid { display: grid; gap: var(--spacing); grid-template-columns: 1fr; }
+    {% elif card_layout == 'carousel' %}
+    .grid { display: grid; gap: var(--spacing); grid-template-columns: 1fr; overflow-x: auto; }
+    {% else %}
+    .grid { display: grid; gap: var(--spacing); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    {% endif %}
     .benefit { border-radius: 12px; padding: 12px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); }
     .review { border-radius: 10px; padding: 12px; border-left: 3px solid var(--primary); background: color-mix(in srgb, var(--surface) 76%, var(--secondary)); }
-    .token { display: inline-block; font-size: 11px; font-weight: 700; margin-right: 6px; padding: 4px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 24%, transparent); }
+    .token {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
+    }
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
@@ -98,7 +142,8 @@
       </div>
     </section>
 
-    <section class="benefits">
+    <div class="flow">
+    <section class="benefits" style="order:{% if section_order == 'proof-first' %}2{% elif section_order == 'cta-last' %}3{% else %}3{% endif %};">
       <h2>Top Reasons To Install</h2>
       <div class="grid">
         {% for b in content.benefits %}
@@ -111,7 +156,7 @@
       </div>
     </section>
 
-    <section class="proof">
+    <section class="proof" style="order:{% if section_order == 'proof-first' %}1{% else %}2{% endif %};">
       <h2>{{ content.social_proof_headline }}</h2>
       <div class="grid">
         {% for r in content.social_proof_reviews %}
@@ -124,7 +169,7 @@
       </div>
     </section>
 
-    <section class="faq">
+    <section class="faq" style="order:4;">
       <h2>FAQ</h2>
       {% for f in content.faq_items %}
       <article style="margin-bottom:10px;">
@@ -133,6 +178,7 @@
       </article>
       {% endfor %}
     </section>
+    </div>
   </main>
 </body>
 </html>

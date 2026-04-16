@@ -79,10 +79,43 @@ def _benefit_title(text: str) -> str:
         ("discover", "Easy Discovery"),
         ("quality", "Great Audio Quality"),
         ("sync", "Cross-Device Continuity"),
+        ("user-friendly", "User-Friendly Interface"),
+        ("secure", "Secure Experience"),
+        ("privacy", "Privacy Control"),
+        ("budget", "Budget Control"),
+        ("transfer", "Fast Transfers"),
     ]
     for key, title in keyword_titles:
         if key in low:
             return title
+
+    # Convert common sentence starters into clean topic labels.
+    if low.startswith("access to"):
+        if "wide" in low:
+            return "Wide Access"
+        if "quick" in low or "fast" in low:
+            return "Quick Access"
+        return "Easy Access"
+
+    if low.startswith("user-friendly interface"):
+        return "User-Friendly Interface"
+
+    # Prefer a clause before connectors so headings stay concise and natural.
+    primary_clause = re.split(r"\b(for|with|to|that|which)\b|[\.:;,-]", normalized, maxsplit=1)[0].strip()
+    words = [w for w in re.findall(r"[A-Za-z][A-Za-z\-']+", primary_clause) if len(w) > 2]
+
+    stopwords = {
+        "the", "and", "for", "with", "that", "this", "your", "you", "from", "into", "over", "under",
+        "while", "where", "when", "have", "has", "had", "are", "was", "were", "will", "can", "all",
+    }
+    filtered = [w for w in words if w.lower() not in stopwords]
+
+    if filtered:
+        if filtered[0].lower() == "access" and len(filtered) > 1:
+            # "Access ..." reads better as "... Access".
+            return f"{filtered[1].capitalize()} Access"[:60]
+        title = " ".join(filtered[:3])
+        return title.title()[:60]
 
     words = normalized.split(" ")
     if not words:
@@ -178,15 +211,21 @@ def _faq_answer(topic: str, extracted_data: ExtractedAppData, strategy: ContentS
 
 
 def _clean_reviews(reviews: List[dict]) -> List[dict]:
+    """Clean reviews for display - minimal filtering, trust OpenAI analysis."""
+    
     cleaned = []
     for r in reviews:
         if hasattr(r, "model_dump"):
             r = r.model_dump()
-        text = _clean_text(str(r.get("text", "")))
+        
+        text_raw = str(r.get("text", ""))
+        text = _clean_text(text_raw)
+        
         if len(text) > 220:
             text = text[:217].rstrip() + "..."
         if not text:
             continue
+        
         cleaned.append(
             {
                 "rating": int(r.get("rating", 0) or 0),
@@ -224,21 +263,22 @@ def generate_landing_content(
     logger.info("Composer prompt loaded (%d chars)", len(prompt_text))
 
     include_rating = extracted_data.rating is not None and "rating_not_promoted_below_4_5" not in (strategy.missing_data_flags or [])
-    reviews = _clean_reviews((strategy.selected_reviews or [])[:3])
+    max_reviews = 5 if extracted_data.rating and extracted_data.rating >= 4.0 else 3
+    reviews = _clean_reviews((strategy.selected_reviews or [])[:max_reviews])
     installs = _humanize_installs(extracted_data.installs)
 
     social_headline = "Loved by users"
     if include_rating and extracted_data.rating is not None:
-        social_headline = f"Rated {extracted_data.rating:.2f}/5 by users"
+            social_headline = f"Rated {extracted_data.rating:.2f}/5 by users"
     elif installs:
-        social_headline = f"Trusted by {installs} installs"
+            social_headline = f"Trusted by {installs} installs"
 
     faq_items = [
-        {
+    {
             "question": topic,
             "answer": _faq_answer(topic, extracted_data, strategy),
-        }
-        for topic in (strategy.faq_topics or [])[:4]
+    }
+    for topic in (strategy.faq_topics or [])[:4]
     ]
 
     if not faq_items:

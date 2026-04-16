@@ -2,8 +2,12 @@ import os
 from pathlib import Path
 
 import click
+from dotenv import load_dotenv
 
 from agent.orchestrator import orchestrate_pipeline
+
+
+load_dotenv()
 
 
 def _read_urls_from_file(file_path: str) -> list[str]:

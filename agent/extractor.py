@@ -15,7 +15,7 @@ class PlayStoreExtractor:
 
     def __init__(self):
         self.review_window_days = 180
-        self.max_reviews = 8
+        self.max_reviews = 12  # Extract more; analyzer will select best 3
 
     def extract_app_id_from_url(self, url: str) -> str:
         """Extract app ID from Google Play URL."""
@@ -24,12 +24,13 @@ class PlayStoreExtractor:
         parsed = urlparse(url)
         return parse_qs(parsed.query)["id"][0]
 
+
     def _extract_via_google_play_scraper(self, app_id: str) -> Dict:
         data = gp_app(app_id, lang="en", country="us")
 
         cutoff = datetime.utcnow() - timedelta(days=self.review_window_days)
 
-        # Pull a larger set and keep only strong + recent reviews.
+        # Extract reviews: highest rated and most recent (let analyzer decide quality)
         raw_reviews, _ = gp_reviews(
             app_id,
             lang="en",
@@ -44,10 +45,11 @@ class PlayStoreExtractor:
             text = (r.get("content") or "").strip()
             review_at = r.get("at")
 
+            # Keep 4+ stars and has text
             if score < 4 or not text:
                 continue
 
-            # Keep only reviews from the last 6 months.
+            # Keep only reviews from the last 6 months
             if not isinstance(review_at, datetime):
                 continue
             if review_at < cutoff:
@@ -62,7 +64,8 @@ class PlayStoreExtractor:
                 }
             )
 
-        # Highest stars first, then newest first.
+        # Sort by rating (highest) then date (newest)
+        # Analyzer will evaluate content quality and select marketing-friendly ones
         filtered_reviews.sort(
             key=lambda x: (
                 x.get("rating", 0),
@@ -71,14 +74,14 @@ class PlayStoreExtractor:
             reverse=True,
         )
 
-        good_reviews = [
+        all_reviews = [
             {
                 "rating": r["rating"],
                 "text": r["text"],
                 "reviewer": r["reviewer"],
                 "date": r["_at"].date().isoformat() if isinstance(r.get("_at"), datetime) else None,
             }
-            for r in filtered_reviews[: self.max_reviews]
+            for r in filtered_reviews[: self.max_reviews]  # Pass ~12 to analyzer for selection
         ]
 
         updated = data.get("updated")
@@ -92,13 +95,14 @@ class PlayStoreExtractor:
         return {
             "app_id": app_id,
             "app_name": data.get("title") or "Unknown",
+            "developer_name": data.get("developer") or data.get("developerName") or None,
             "short_description": data.get("summary") or "No description available",
             "full_description": data.get("description") or data.get("summary") or "No description available",
             "icon_url": data.get("icon") or "",
             "screenshots": (data.get("screenshots") or [])[:8],
             "rating": round(float(data.get("score")), 2) if data.get("score") is not None else None,
             "installs": installs_str,
-            "reviews": good_reviews,
+            "reviews": all_reviews,  # Analyzer will select best 3 from these
             "last_updated": updated_str,
             "current_version": data.get("version"),
             "min_android_version": None,
