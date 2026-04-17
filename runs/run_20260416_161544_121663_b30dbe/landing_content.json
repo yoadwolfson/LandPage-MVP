@@ -1,0 +1,52 @@
+{
+  "hero_headline": "Me - Caller ID & Spam Blocker",
+  "hero_subheadline": "Discover Me - Caller ID & Spam Blocker. Me Caller Id & SPAM Protection reveal the true callers name avoid unwanted calls",
+  "hero_image_url": "https://play-lh.googleusercontent.com/VdAx9gEkmsXzR_f8Q1arOR__24mqlr_Rt3WS_AqK5lovLOj2Cuw1Z1FQhRyUlBUbaUk",
+  "benefits": [
+    {
+      "title": "Identify Block Spam",
+      "description": "Identify and block spam calls in real-time",
+      "icon_emoji": "VALUE"
+    },
+    {
+      "title": "Easy Discovery",
+      "description": "Discover who saved your number and how",
+      "icon_emoji": "FAST"
+    },
+    {
+      "title": "Enjoy Powerful Dialer",
+      "description": "Enjoy a powerful T9 dialer and intuitive call log",
+      "icon_emoji": "TRUST"
+    }
+  ],
+  "social_proof_headline": "Trusted by 19.1M installs",
+  "social_proof_rating": null,
+  "social_proof_installs": "19.1M",
+  "social_proof_reviews": [],
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/5korHWIS3Cpr2srPwNdw3Szoj1nY3CLN4dub2N7lihmeaYUhERcEgSYkwbvImpGgR-aHpLhZ1liKg4WtpXpqQA",
+    "https://play-lh.googleusercontent.com/FYkJQrGsci6DX2WYZ9MzqMmkYqF5-uNr9nS7GtaY38CBQI2SZO5YOBmw1NVAvZU1CLfr_M5HB3rkLh66NqG5vQ",
+    "https://play-lh.googleusercontent.com/C8mDbXJx476cWpuPeQQxEMG45bGAlWAUlhl6pZOW2I2n-M9TL67mjD2wmWYtTJZ6urfMfxFCaVAfnJobfu0qPfM",
+    "https://play-lh.googleusercontent.com/XXb-hzb7HmKUC8lFg-hyIV_cBR_Y7jfsoIYzUki0oYOA7GSO-tP6ic94x-Pl4YYmeYApkyzRlWemNcne4Xg_Dg",
+    "https://play-lh.googleusercontent.com/k9HhLfAWOm_F6HQUwyjFK1bpSFP5Mge-4t6bKlfuNhSZYzebdKWPCl-e2VsRfGGCK1Eb76gPypqEwJlbLbV7GX0",
+    "https://play-lh.googleusercontent.com/45MqstHkYGrZ309p9JdlYmGDFhXcojn8kdZavZ9BJF4rto2KwXfh89ggQKaEbnsFhYfadRHLccgqwFokhlJS4g",
+    "https://play-lh.googleusercontent.com/S1jjc-rH9ZmvlnmSa9h_D13uTLVhdzFyNMrfizZgmk9v8n467yldNCV17BJAHC35JnrI5qZv1YKlYQZTjMPc",
+    "https://play-lh.googleusercontent.com/cDD2j4oFpMuqZBTIQeyPmuO7wf22z70ShcaJf6AzrrsiqW8Ae1-Tw5Z9J9ykPSkqtIn1Va--g2u8ZhYZrQZoAg"
+  ],
+  "faq_items": [
+    {
+      "question": "How does the spam blocking feature work?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    },
+    {
+      "question": "Can I see who saved my number?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    },
+    {
+      "question": "What are the privacy controls available?",
+      "answer": "Your account and usage settings are managed inside the app. Review permissions and privacy settings during onboarding for best control."
+    }
+  ],
+  "cta_text": "Install on Google Play",
+  "cta_url": "https://play.google.com/store/apps/details?id=com.nfo.me.android"
+}

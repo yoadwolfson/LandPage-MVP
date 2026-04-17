@@ -1,0 +1,68 @@
+{
+  "hero_headline": "PayPal - Pay, Send, Save",
+  "hero_subheadline": "Make Smarter Money Moves with PayPal - Pay, Send, Save. The PayPal app is the secure way to send and receive money, shop and pay in 4.",
+  "hero_image_url": "https://play-lh.googleusercontent.com/xOKbvDt362x1uzW-nnggP-PgO9HM4L1vwBl5HgHFHy_n1X3mqeBtOSoIyNJzTS3rrj70",
+  "benefits": [
+    {
+      "title": "Secure Experience",
+      "description": "Fast and secure payments anytime, anywhere",
+      "icon_emoji": "GROWTH"
+    },
+    {
+      "title": "Fast Transfers",
+      "description": "Reliable for online shopping and money transfer",
+      "icon_emoji": "SECURE"
+    },
+    {
+      "title": "Earn Cash Back",
+      "description": "Earn cash back on purchases and manage savings easily",
+      "icon_emoji": "PAY"
+    }
+  ],
+  "social_proof_headline": "Trusted by 944.1M installs",
+  "social_proof_rating": null,
+  "social_proof_installs": "944.1M",
+  "social_proof_reviews": [
+    {
+      "rating": 5,
+      "text": "Very convenient and easy to use app. Fast and secure payments anytime, anywhere. Reliable for online shopping and money transfer. Highly recommended!",
+      "reviewer": "liola jenn"
+    },
+    {
+      "rating": 5,
+      "text": "PayPal is a trusted app for sending and receiving money online. It is easy to use, widely accepted by many online stores, and offers secure transactions. Overall, it’s a reliable and convenient payment platform 👍",
+      "reviewer": "syakir haziq"
+    },
+    {
+      "rating": 5,
+      "text": "PayPal is the industry standard for secure online payments, offering unmatched peace of mind through its robust Buyer Protection program. It simplifies the checkout process by storing your financial details securely,...",
+      "reviewer": "Aliesya Syakila"
+    }
+  ],
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/b10m56Svl6bNHBIw2YUL9xjmSrMfQl4HD4PBaxbTWvY3hR3aXqQdaxz7gzVONAshKvUts5PTq3TWtlqs0vPC",
+    "https://play-lh.googleusercontent.com/jj1d5HtU6po4j4oewfYYXrMtElxqDTw3Lhqmo7B2sc-Uw2tAWlK0cv3qA_pNWxS67g",
+    "https://play-lh.googleusercontent.com/YoucXJbDKxSSaEkB_xR5grUT_enqWRgbx4sM_g3xWyndSZwDNeiLUwnYErHbh6CAEC9Aup4GsTIqNFJ0tFFR_Q",
+    "https://play-lh.googleusercontent.com/y_UglglMped9FujbAxk3Lahd09dYWGROWgMcZfGMcFa9kZi5SHPEzwFsQEBSkizmPQ",
+    "https://play-lh.googleusercontent.com/vOQ0z-LDz6P8-u_t9k9vPUz-fP40X3DLTPqnz23QQX2iaoBaBxVI8pS-2VeHRiHxq2E",
+    "https://play-lh.googleusercontent.com/YRebEWJmjL-TmI7MMiYeZ9oTzN1s1zUWeh3HA-81L7KSnDQJWEPyQmiUtbSBZEYySQ",
+    "https://play-lh.googleusercontent.com/s-xLjgqdSYizqgfJOlnPsoX1NEA-64grgnoukv09F63WqylWNQmlVZnDZqaIim5WrGzh",
+    "https://play-lh.googleusercontent.com/G2-PQFD4WjK5OMr649jkETZLwqbs-GWaw6Us_qHIWbvP_-0UihBppJoTzn_nTnRDJVY"
+  ],
+  "faq_items": [
+    {
+      "question": "How does PayPal ensure transaction security?",
+      "answer": "Your account and usage settings are managed inside the app. Review permissions and privacy settings during onboarding for best control."
+    },
+    {
+      "question": "What are the benefits of using PayPal for online shopping?",
+      "answer": "The product emphasizes clarity, control, and safe account management for everyday decisions."
+    },
+    {
+      "question": "How can I earn cash back with PayPal?",
+      "answer": "The product emphasizes clarity, control, and safe account management for everyday decisions."
+    }
+  ],
+  "cta_text": "Install and Take Control",
+  "cta_url": "https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile"
+}

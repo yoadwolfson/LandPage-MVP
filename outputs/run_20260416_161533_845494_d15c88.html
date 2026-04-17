@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offtop Rap Studio & Song Maker</title>
+  <style>
+    
+    :root {
+      --primary: #000000;
+      --secondary: #080D16;
+      --bg: #000000;
+      --surface: #383838;
+      --text: #F8FAFC;
+      --accent: #FFFFFF;
+      --h1-size: 40px;
+      --h2-size: 24px;
+      --spacing: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 8% -10%, color-mix(in srgb, var(--primary) 20%, transparent), transparent),
+        radial-gradient(800px 500px at 95% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent),
+        var(--bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    .container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .flow { display: flex; flex-direction: column; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--spacing);
+      align-items: flex-start;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      border-radius: 18px;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, var(--secondary)), color-mix(in srgb, var(--surface) 70%, var(--primary)));
+      padding: 24px;
+      box-shadow: 0 11px 26px rgba(0, 0, 0, 0.30);
+    }
+    h1 { margin: 8px 0 10px; font-size: var(--h1-size); line-height: 1.06; }
+    h2 { font-size: var(--h2-size); }
+    p { margin: 0; color: color-mix(in srgb, var(--text) 84%, transparent); }
+    .meta { font-size: 13px; color: color-mix(in srgb, var(--text) 65%, transparent); margin-top: 10px; }
+    .cta {
+      display: inline-block;
+      margin-top: var(--spacing);
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #04100a;
+      background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--accent) 38%, #fff));
+      font-weight: 700;
+    }
+    .shot-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--spacing);
+      margin-top: var(--spacing);
+    }
+    .shot-strip img { width: 100%; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); }
+    .proof, .benefits, .faq {
+      margin-top: var(--spacing);
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
+      padding: 16px;
+    }
+    .grid { display: grid; gap: var(--spacing); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .benefit { border-radius: 12px; padding: 12px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); }
+    .review { border-radius: 10px; padding: 12px; border-left: 3px solid var(--primary); background: color-mix(in srgb, var(--surface) 76%, var(--secondary)); }
+    .token {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .shot-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="token">MUSIC</div>
+        <h1>Offtop Rap Studio & Song Maker</h1>
+        <p>Discover Offtop Rap Studio & Song Maker. Autotune recording studio to rap, sing, collaborate, and write over beats</p>
+        <div class="meta">
+ • 4.5M installs        </div>
+        <a class="cta" href="https://play.google.com/store/apps/details?id=com.emelianov.audio">Install on Google Play</a>
+      </div>
+      <div>
+        <img src="https://play-lh.googleusercontent.com/y6kEJkAnnHV9D9GpaeXwFZP42TAgEIQGu8PP3G0LrgwDsukEjF1WqkHr1npeTXcaEE4" alt="Offtop Rap Studio & Song Maker icon" style="width: 112px; height: 112px; border-radius: 18px;" />
+        <div class="shot-strip">
+          <img src="https://play-lh.googleusercontent.com/S7jtyrULnc-NTwnfFlg0aKQqAjp8qdUDP_ROvz4-Hnr0uV4-1XF6820HWFwOBh31UyDy" alt="app screenshot" />
+          <img src="https://play-lh.googleusercontent.com/7lt3yt5jWNmm3sjpufWu09cmESJEcwB0Pf8h8v6YgyszYpFcjxhW4g_AbqHhc-6NpkgG" alt="app screenshot" />
+          <img src="https://play-lh.googleusercontent.com/HGD2SOBVamEODDerSb-Cb-xCYQp7i6t2P4GRkhoO72TkJnn_EK2v7Djs93EM-gE5Zzis" alt="app screenshot" />
+        </div>
+      </div>
+    </section>
+
+    <div class="flow">
+    <section class="benefits" style="order:3;">
+      <h2>Top Reasons To Install</h2>
+      <div class="grid">
+        <article class="benefit">
+          <div class="token">VALUE</div>
+          <h3>Great Audio Quality</h3>
+          <p>Multitrack recording with professional sound quality</p>
+        </article>
+        <article class="benefit">
+          <div class="token">FAST</div>
+          <h3>Built</h3>
+          <p>Built-in lyric notepad and rhyming dictionary for enhanced songwriting</p>
+        </article>
+        <article class="benefit">
+          <div class="token">TRUST</div>
+          <h3>Collaborate</h3>
+          <p>Collaborate with other artists and share your music easily</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="proof" style="order:2;">
+      <h2>Trusted by 4.5M installs</h2>
+      <div class="grid">
+        <blockquote class="review">
+          <strong>5/5</strong>
+          <div>Offtop hands down favorite thing to do ! Besides make money</div>
+          <footer class="meta">- James Christopher Frederick</footer>
+        </blockquote>
+        <blockquote class="review">
+          <strong>5/5</strong>
+          <div>Its and amazing app For mixing tracks. It's easy to use with amazing results.</div>
+          <footer class="meta">- Hard Wyte</footer>
+        </blockquote>
+        <blockquote class="review">
+          <strong>5/5</strong>
+          <div>I am a beat maker also song writer I love producing myself a lot and this platform it can maybe help me.</div>
+          <footer class="meta">- Mzwamadoda Tembani</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="faq" style="order:4;">
+      <h2>FAQ</h2>
+      <article style="margin-bottom:10px;">
+        <strong>How to collaborate with other artists?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </article>
+      <article style="margin-bottom:10px;">
+        <strong>What features are included in the music editor?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </article>
+      <article style="margin-bottom:10px;">
+        <strong>How can I protect my beats and songs on the platform?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </article>
+    </section>
+    </div>
+  </main>
+</body>
+</html>

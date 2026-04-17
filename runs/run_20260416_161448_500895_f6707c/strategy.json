@@ -1,0 +1,48 @@
+{
+  "target_audience": "Residents and businesses in Israel seeking easy access to government services",
+  "tone": "informative and supportive",
+  "main_angle": "Streamlined access to essential government services in one secure app",
+  "top_benefits": [
+    "Access to a wide range of government services in one place",
+    "Secure handling of personal information",
+    "Convenient and easy-to-use interface for quick actions"
+  ],
+  "selected_reviews": [],
+  "faq_topics": [
+    "How to download and install the app",
+    "What services are available through the app",
+    "How to ensure the security of personal information"
+  ],
+  "missing_data_flags": [
+    "rating_not_promoted_below_4_5",
+    "reviews_hidden_for_low_rating",
+    "no_good_recent_reviews"
+  ],
+  "style_guide": {
+    "bucket": "government",
+    "theme": "professional",
+    "palette": "logo-derived from #A0C0FF and #FFFFFF",
+    "visual_direction": "clean and straightforward",
+    "template_id": "default",
+    "template_objective": "To provide a clear and accessible layout for government services",
+    "typography": "sans-serif",
+    "color_primary": "#A0C0FF",
+    "color_secondary": "#384763",
+    "color_background": "#1A1F29",
+    "color_surface": "#303D57",
+    "color_text": "#F8FAFC",
+    "color_accent": "#FFFFFF",
+    "hero_layout": "full-width",
+    "card_layout": "grid",
+    "typography_density": "normal",
+    "content_emphasis": "text",
+    "visual_intensity": "medium",
+    "section_order": "benefit-first",
+    "tone_variant": "trustworthy",
+    "trust_level": "high",
+    "motion_hint": "minimal",
+    "palette_source": "brand_logo"
+  },
+  "strategy_source": "openai",
+  "fallback_reason": null
+}

@@ -1,0 +1,48 @@
+{
+  "target_audience": "Lake Trust Credit Union members and potential customers looking for a reliable mobile banking solution.",
+  "tone": "friendly and professional",
+  "main_angle": "Seamless and secure banking experience on the go.",
+  "top_benefits": [
+    "Easy access to account information",
+    "Efficient bill payments and money transfers",
+    "User-friendly interface for all banking needs"
+  ],
+  "selected_reviews": [],
+  "faq_topics": [
+    "How to deposit checks using the app?",
+    "What features are available for money transfers?",
+    "How to contact customer support?"
+  ],
+  "missing_data_flags": [
+    "rating_not_promoted_below_4_5",
+    "reviews_hidden_for_low_rating",
+    "no_good_recent_reviews"
+  ],
+  "style_guide": {
+    "bucket": "banking",
+    "theme": "modern",
+    "palette": "logo-derived from #6080A0 and #FFFFFF",
+    "visual_direction": "minimalistic with a focus on functionality",
+    "template_id": "default",
+    "template_objective": "To provide a clean and user-friendly layout that emphasizes ease of use and accessibility.",
+    "typography": "sans-serif for clarity",
+    "color_primary": "#6080A0",
+    "color_secondary": "#243446",
+    "color_background": "#0F141A",
+    "color_surface": "#222F42",
+    "color_text": "#F8FAFC",
+    "color_accent": "#FFFFFF",
+    "hero_layout": "full-width",
+    "card_layout": "grid",
+    "typography_density": "normal",
+    "content_emphasis": "text",
+    "visual_intensity": "medium",
+    "section_order": "benefit-first",
+    "tone_variant": "informative",
+    "trust_level": "high",
+    "motion_hint": "subtle",
+    "palette_source": "brand_logo"
+  },
+  "strategy_source": "openai",
+  "fallback_reason": null
+}

@@ -1,0 +1,52 @@
+{
+  "hero_headline": "Lake Trust Mobile Banking",
+  "hero_subheadline": "Discover Lake Trust Mobile Banking. Manage Lake Trust accounts on the go in a secure and seamless mobile experience.",
+  "hero_image_url": "https://play-lh.googleusercontent.com/MgKqCfMJRRpCbc21uGYGhIQdLdY6Z4oBUgqw-3bB66hyAYU3EV7Yz3DVyk1PJF9wBH0PzBmT7lmln12lUGwZZE8",
+  "benefits": [
+    {
+      "title": "Easy Access",
+      "description": "Easy access to account information",
+      "icon_emoji": "VALUE"
+    },
+    {
+      "title": "Fast Transfers",
+      "description": "Efficient bill payments and money transfers",
+      "icon_emoji": "FAST"
+    },
+    {
+      "title": "User-Friendly Interface",
+      "description": "User-friendly interface for all banking needs",
+      "icon_emoji": "TRUST"
+    }
+  ],
+  "social_proof_headline": "Trusted by 35.4K installs",
+  "social_proof_rating": null,
+  "social_proof_installs": "35.4K",
+  "social_proof_reviews": [],
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/FwT8IzVwmWJSwSivD_CW1KR5hLI9ElTmjMDYaf2xkbmOOfz9-nub5eIr5RWnwyC7qw",
+    "https://play-lh.googleusercontent.com/VgK5Z_HiNrQ3JH2jbyzCDvw4jb_FxXDorkSq7UKBI-tCbj-nF9W9iEL7AI_NYqYonw",
+    "https://play-lh.googleusercontent.com/sJ1Ats4-xWv18LynuAva2nmMeTv8WaA-2qv71itzPPabfOKp2aMxXfkezvuDr0nql4g",
+    "https://play-lh.googleusercontent.com/arDlqGAwO02Yr73GGs9ni6p4RUm6f-7uEJnp1RwF4sQ63pSz-QRh86vpQoVOe_c7bdw",
+    "https://play-lh.googleusercontent.com/N5Cfl5td96Y2_ZQxlYYSglOgkpvjtqyyDXX-GoybZ8oeEHhZH7ljxHAaM_tIBaz-KoJq",
+    "https://play-lh.googleusercontent.com/LwZfBhkeGTEcfR6S14G1Pxd5Nz3RaC0gSDEVrbTmaxyCiI0vHVbqnmgO9GNou9NDMb6v",
+    "https://play-lh.googleusercontent.com/3mF6vQV_yulFn6hSh6wRgtW_KX4azD84iPVrHeLI41rcR6iids3Yhbd0FRx1_9fQlzHV",
+    "https://play-lh.googleusercontent.com/zPwUgSjYBZWr3S3De_uC1GpxrHEz38c6hk9rbEu_zfQSnzURXspZNkMuuuttafrt_eI"
+  ],
+  "faq_items": [
+    {
+      "question": "How to deposit checks using the app?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    },
+    {
+      "question": "What features are available for money transfers?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    },
+    {
+      "question": "How to contact customer support?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    }
+  ],
+  "cta_text": "Install on Google Play",
+  "cta_url": "https://play.google.com/store/apps/details?id=com.laketrustcreditunion.app"
+}

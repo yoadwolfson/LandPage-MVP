@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify: Music and Podcasts</title>
+  <style>
+    
+    :root {
+      --primary: #20E060;
+      --secondary: #115033;
+      --bg: #05240F;
+      --surface: #144434;
+      --text: #F8FAFC;
+      --accent: #200000;
+      --h1-size: 40px;
+      --h2-size: 24px;
+      --spacing: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 8% -10%, color-mix(in srgb, var(--primary) 20%, transparent), transparent),
+        radial-gradient(800px 500px at 95% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent),
+        var(--bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    .container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .flow { display: flex; flex-direction: column; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--spacing);
+      align-items: flex-start;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      border-radius: 18px;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 92%, var(--secondary)), color-mix(in srgb, var(--surface) 70%, var(--primary)));
+      padding: 24px;
+      box-shadow: 0 11px 26px rgba(0, 0, 0, 0.30);
+    }
+    h1 { margin: 8px 0 10px; font-size: var(--h1-size); line-height: 1.06; }
+    h2 { font-size: var(--h2-size); }
+    p { margin: 0; color: color-mix(in srgb, var(--text) 84%, transparent); }
+    .meta { font-size: 13px; color: color-mix(in srgb, var(--text) 65%, transparent); margin-top: 10px; }
+    .cta {
+      display: inline-block;
+      margin-top: var(--spacing);
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #04100a;
+      background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--accent) 38%, #fff));
+      font-weight: 700;
+    }
+    .shot-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--spacing);
+      margin-top: var(--spacing);
+    }
+    .shot-strip img { width: 100%; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); }
+    .proof, .benefits, .faq {
+      margin-top: var(--spacing);
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
+      padding: 16px;
+    }
+    .grid { display: grid; gap: var(--spacing); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .benefit { border-radius: 12px; padding: 12px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); }
+    .review { border-radius: 10px; padding: 12px; border-left: 3px solid var(--primary); background: color-mix(in srgb, var(--surface) 76%, var(--secondary)); }
+    .token {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .shot-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="token">MUSIC</div>
+        <h1>Spotify: Music and Podcasts</h1>
+        <p>Feel Every Beat with Spotify: Music and Podcasts. Listen to songs, play podcasts, create playlists and discover music you'll love</p>
+        <div class="meta">
+ • 5.8B installs        </div>
+        <a class="cta" href="https://play.google.com/store/apps/details?id=com.spotify.music">Install and Start Listening</a>
+      </div>
+      <div>
+        <img src="https://play-lh.googleusercontent.com/7ynvVIRdhJNAngCg_GI7i8TtH8BqkJYmffeUHsG-mJOdzt1XLvGmbsKuc5Q1SInBjDKN" alt="Spotify: Music and Podcasts icon" style="width: 112px; height: 112px; border-radius: 18px;" />
+        <div class="shot-strip">
+          <img src="https://play-lh.googleusercontent.com/fOaUJKnuMPk02Gl5qu_B6ePw0myxaNJx3QZihKxsaAix5TYKl1NnfmvzZ52nSAc3w8nD" alt="app screenshot" />
+          <img src="https://play-lh.googleusercontent.com/a7950Z_tJAMl7t9mh62ZBJianaWewvFqSXbpp4XqnrShHD1x4_JzB4ONSfM124rAvd3J" alt="app screenshot" />
+          <img src="https://play-lh.googleusercontent.com/I2iwvszKORGgJssO-Q-sy1jL3zcjOQRJ7QBuUW5Zd3z6UeAYXqINSeujzs40f7iTxg" alt="app screenshot" />
+        </div>
+      </div>
+    </section>
+
+    <div class="flow">
+    <section class="benefits" style="order:3;">
+      <h2>Top Reasons To Install</h2>
+      <div class="grid">
+        <article class="benefit">
+          <div class="token">AUDIO</div>
+          <h3>Podcast Variety</h3>
+          <p>Access to over 80 million songs and 4 million podcasts for free.</p>
+        </article>
+        <article class="benefit">
+          <div class="token">DISCOVER</div>
+          <h3>Smarter Playlists</h3>
+          <p>Personalized playlists and recommendations that match your mood.</p>
+        </article>
+        <article class="benefit">
+          <div class="token">SPEED</div>
+          <h3>Offline Access</h3>
+          <p>Seamless offline listening with Spotify Premium.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="proof" style="order:2;">
+      <h2>Trusted by 5.8B installs</h2>
+      <div class="grid">
+        <blockquote class="review">
+          <strong>5/5</strong>
+          <div>Variety is the spice of life when you want it. Spotify allows me to hear all my favorites in a variety of genres. They also create good playlists for me introducing me to new artists and songs that I would otherwise m...</div>
+          <footer class="meta">- Gwen Cicone</footer>
+        </blockquote>
+        <blockquote class="review">
+          <strong>5/5</strong>
+          <div>I really love using ! The sound quality is amazing and the app runs very smoothly on my phone. I can listen to my favorite songs anytime, anywhere. The best part is that even when the internet is slow or offline (with...</div>
+          <footer class="meta">- Prince yadav</footer>
+        </blockquote>
+        <blockquote class="review">
+          <strong>5/5</strong>
+          <div>well Spotify has been the best, app I ever found, I thought premium would be a waste of money, but nuh, I can bet on that, whatever historical song, back in the days, u can find your song, it's easy and straight forwa...</div>
+          <footer class="meta">- Bu Bu</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="faq" style="order:4;">
+      <h2>FAQ</h2>
+      <article style="margin-bottom:10px;">
+        <strong>How does Spotify Premium work?</strong>
+        <div>The experience is designed around fast discovery, smooth listening, and personalized recommendations.</div>
+      </article>
+      <article style="margin-bottom:10px;">
+        <strong>What are the benefits of using Spotify?</strong>
+        <div>The experience is designed around fast discovery, smooth listening, and personalized recommendations.</div>
+      </article>
+      <article style="margin-bottom:10px;">
+        <strong>Can I listen offline with Spotify?</strong>
+        <div>You can install the app and use its supported features on your device immediately. Check in-app settings for offline options.</div>
+      </article>
+    </section>
+    </div>
+  </main>
+</body>
+</html>

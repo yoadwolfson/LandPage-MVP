@@ -1,0 +1,68 @@
+{
+  "hero_headline": "Offtop Rap Studio & Song Maker",
+  "hero_subheadline": "Discover Offtop Rap Studio & Song Maker. Autotune recording studio to rap, sing, collaborate, and write over beats",
+  "hero_image_url": "https://play-lh.googleusercontent.com/y6kEJkAnnHV9D9GpaeXwFZP42TAgEIQGu8PP3G0LrgwDsukEjF1WqkHr1npeTXcaEE4",
+  "benefits": [
+    {
+      "title": "Great Audio Quality",
+      "description": "Multitrack recording with professional sound quality",
+      "icon_emoji": "VALUE"
+    },
+    {
+      "title": "Built",
+      "description": "Built-in lyric notepad and rhyming dictionary for enhanced songwriting",
+      "icon_emoji": "FAST"
+    },
+    {
+      "title": "Collaborate",
+      "description": "Collaborate with other artists and share your music easily",
+      "icon_emoji": "TRUST"
+    }
+  ],
+  "social_proof_headline": "Trusted by 4.5M installs",
+  "social_proof_rating": null,
+  "social_proof_installs": "4.5M",
+  "social_proof_reviews": [
+    {
+      "rating": 5,
+      "text": "Offtop hands down favorite thing to do ! Besides make money",
+      "reviewer": "James Christopher Frederick"
+    },
+    {
+      "rating": 5,
+      "text": "Its and amazing app For mixing tracks. It's easy to use with amazing results.",
+      "reviewer": "Hard Wyte"
+    },
+    {
+      "rating": 5,
+      "text": "I am a beat maker also song writer I love producing myself a lot and this platform it can maybe help me.",
+      "reviewer": "Mzwamadoda Tembani"
+    }
+  ],
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/S7jtyrULnc-NTwnfFlg0aKQqAjp8qdUDP_ROvz4-Hnr0uV4-1XF6820HWFwOBh31UyDy",
+    "https://play-lh.googleusercontent.com/7lt3yt5jWNmm3sjpufWu09cmESJEcwB0Pf8h8v6YgyszYpFcjxhW4g_AbqHhc-6NpkgG",
+    "https://play-lh.googleusercontent.com/HGD2SOBVamEODDerSb-Cb-xCYQp7i6t2P4GRkhoO72TkJnn_EK2v7Djs93EM-gE5Zzis",
+    "https://play-lh.googleusercontent.com/_QuYZ5L2f8qPPWhyvWLbcsoTbTx3NtCuY0nuRDq8Mu2XPrJ6c5lSperXkkskhgm89vk",
+    "https://play-lh.googleusercontent.com/C3biFQPmgljAPj29U9AzvYbKmn4zHYcB9qdgMZVr7OGmjrIN4O9ZLaqrjWvxsvzvkUo",
+    "https://play-lh.googleusercontent.com/SddCR9ZHRSlDAhfk5XZeYCzttwcjsuHAO1yTimh-bH7YEYzAZltZuTEnAWNxe0l8SsM",
+    "https://play-lh.googleusercontent.com/VSGSB4FC8lDopLVGFJrc4ofhxzi-gC78kQKLgUXlK-whHaIlDe35dnizPpdTeyhZOCs",
+    "https://play-lh.googleusercontent.com/WWSlSHUQZT5k25Jt_TC33WrpNTIcoSHUxQQeEefIi0sLfQi_qLwaFtQkVncFeEdE3Q"
+  ],
+  "faq_items": [
+    {
+      "question": "How to collaborate with other artists?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    },
+    {
+      "question": "What features are included in the music editor?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    },
+    {
+      "question": "How can I protect my beats and songs on the platform?",
+      "answer": "The app is designed for a reliable, user-friendly experience from first install."
+    }
+  ],
+  "cta_text": "Install on Google Play",
+  "cta_url": "https://play.google.com/store/apps/details?id=com.emelianov.audio"
+}

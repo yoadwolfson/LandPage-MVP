@@ -1,0 +1,63 @@
+{
+  "target_audience": "Music and podcast enthusiasts looking for a versatile streaming service.",
+  "tone": "enthusiastic",
+  "main_angle": "Discover and enjoy a vast library of music, podcasts, and audiobooks tailored to your preferences.",
+  "top_benefits": [
+    "Access to over 80 million songs and 4 million podcasts for free.",
+    "Personalized playlists and recommendations that match your mood.",
+    "Seamless offline listening with Spotify Premium."
+  ],
+  "selected_reviews": [
+    {
+      "rating": 5,
+      "text": "Variety is the spice of life when you want it. Spotify allows me to hear all my favorites in a variety of genres. They also create good playlists for me introducing me to new artists and songs that I would otherwise miss. We love the family plan. No ads and easy to share music with each other. Highly recommend.",
+      "reviewer": "Gwen Cicone"
+    },
+    {
+      "rating": 5,
+      "text": "I really love using ! The sound quality is amazing and the app runs very smoothly on my phone. I can listen to my favorite songs anytime, anywhere. The best part is that even when the internet is slow or offline (with downloads), the music experience is still great. The playlists and recommendations are very accurate and always match my mood.",
+      "reviewer": "Prince yadav"
+    },
+    {
+      "rating": 5,
+      "text": "well Spotify has been the best, app I ever found, I thought premium would be a waste of money, but nuh, I can bet on that, whatever historical song, back in the days, u can find your song, it's easy and straight forward no obstacles just straight enjoyment, it's worth it.",
+      "reviewer": "Bu Bu"
+    }
+  ],
+  "faq_topics": [
+    "How does Spotify Premium work?",
+    "What are the benefits of using Spotify?",
+    "Can I listen offline with Spotify?"
+  ],
+  "missing_data_flags": [
+    "rating_not_promoted_below_4_5",
+    "review_proof_enabled"
+  ],
+  "style_guide": {
+    "bucket": "music",
+    "theme": "vibrant and modern",
+    "palette": "logo-derived from #20E060 and #200000",
+    "visual_direction": "dynamic and engaging",
+    "template_id": "music",
+    "template_objective": "To showcase the app's features and benefits in an engaging and visually appealing manner.",
+    "typography": "bold and clear",
+    "color_primary": "#20E060",
+    "color_secondary": "#115033",
+    "color_background": "#05240F",
+    "color_surface": "#144434",
+    "color_text": "#F8FAFC",
+    "color_accent": "#200000",
+    "hero_layout": "full-width",
+    "card_layout": "grid",
+    "typography_density": "normal",
+    "content_emphasis": "visual",
+    "visual_intensity": "medium",
+    "section_order": "benefit-first",
+    "tone_variant": "friendly",
+    "trust_level": "high",
+    "motion_hint": "subtle",
+    "palette_source": "brand_logo"
+  },
+  "strategy_source": "openai",
+  "fallback_reason": null
+}

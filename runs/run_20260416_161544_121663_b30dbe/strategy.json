@@ -1,0 +1,48 @@
+{
+  "target_audience": "Android users seeking caller ID and spam protection",
+  "tone": "informative and reassuring",
+  "main_angle": "Protect yourself from unwanted calls while enhancing your contact management",
+  "top_benefits": [
+    "Identify and block spam calls in real-time",
+    "Discover who saved your number and how",
+    "Enjoy a powerful T9 dialer and intuitive call log"
+  ],
+  "selected_reviews": [],
+  "faq_topics": [
+    "How does the spam blocking feature work?",
+    "Can I see who saved my number?",
+    "What are the privacy controls available?"
+  ],
+  "missing_data_flags": [
+    "rating_not_promoted_below_4_5",
+    "reviews_hidden_for_low_rating",
+    "no_good_recent_reviews"
+  ],
+  "style_guide": {
+    "bucket": "utility",
+    "theme": "modern",
+    "palette": "logo-derived from #00A0FF and #FFFFFF",
+    "visual_direction": "minimalist with emphasis on functionality",
+    "template_id": "default",
+    "template_objective": "To provide a clean and user-friendly layout that emphasizes the app's features and benefits.",
+    "typography": "sans-serif for readability",
+    "color_primary": "#00A0FF",
+    "color_secondary": "#083D63",
+    "color_background": "#001A29",
+    "color_surface": "#0D3657",
+    "color_text": "#F8FAFC",
+    "color_accent": "#FFFFFF",
+    "hero_layout": "full-width",
+    "card_layout": "grid",
+    "typography_density": "normal",
+    "content_emphasis": "visual",
+    "visual_intensity": "medium",
+    "section_order": "benefit-first",
+    "tone_variant": "friendly",
+    "trust_level": "high",
+    "motion_hint": "subtle",
+    "palette_source": "brand_logo"
+  },
+  "strategy_source": "openai",
+  "fallback_reason": null
+}

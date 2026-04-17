@@ -1,0 +1,68 @@
+{
+  "hero_headline": "Spotify: Music and Podcasts",
+  "hero_subheadline": "Feel Every Beat with Spotify: Music and Podcasts. Listen to songs, play podcasts, create playlists and discover music you'll love",
+  "hero_image_url": "https://play-lh.googleusercontent.com/7ynvVIRdhJNAngCg_GI7i8TtH8BqkJYmffeUHsG-mJOdzt1XLvGmbsKuc5Q1SInBjDKN",
+  "benefits": [
+    {
+      "title": "Podcast Variety",
+      "description": "Access to over 80 million songs and 4 million podcasts for free.",
+      "icon_emoji": "AUDIO"
+    },
+    {
+      "title": "Smarter Playlists",
+      "description": "Personalized playlists and recommendations that match your mood.",
+      "icon_emoji": "DISCOVER"
+    },
+    {
+      "title": "Offline Access",
+      "description": "Seamless offline listening with Spotify Premium.",
+      "icon_emoji": "SPEED"
+    }
+  ],
+  "social_proof_headline": "Trusted by 5.8B installs",
+  "social_proof_rating": null,
+  "social_proof_installs": "5.8B",
+  "social_proof_reviews": [
+    {
+      "rating": 5,
+      "text": "Variety is the spice of life when you want it. Spotify allows me to hear all my favorites in a variety of genres. They also create good playlists for me introducing me to new artists and songs that I would otherwise m...",
+      "reviewer": "Gwen Cicone"
+    },
+    {
+      "rating": 5,
+      "text": "I really love using ! The sound quality is amazing and the app runs very smoothly on my phone. I can listen to my favorite songs anytime, anywhere. The best part is that even when the internet is slow or offline (with...",
+      "reviewer": "Prince yadav"
+    },
+    {
+      "rating": 5,
+      "text": "well Spotify has been the best, app I ever found, I thought premium would be a waste of money, but nuh, I can bet on that, whatever historical song, back in the days, u can find your song, it's easy and straight forwa...",
+      "reviewer": "Bu Bu"
+    }
+  ],
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/fOaUJKnuMPk02Gl5qu_B6ePw0myxaNJx3QZihKxsaAix5TYKl1NnfmvzZ52nSAc3w8nD",
+    "https://play-lh.googleusercontent.com/a7950Z_tJAMl7t9mh62ZBJianaWewvFqSXbpp4XqnrShHD1x4_JzB4ONSfM124rAvd3J",
+    "https://play-lh.googleusercontent.com/I2iwvszKORGgJssO-Q-sy1jL3zcjOQRJ7QBuUW5Zd3z6UeAYXqINSeujzs40f7iTxg",
+    "https://play-lh.googleusercontent.com/eT7N-DGqCGJI1UGli8jF7BbMM-6K-Rs2Kw0WFMy7VABLTZdo01qoPknKKg5OxGSvKw",
+    "https://play-lh.googleusercontent.com/xNZPPk0aK44-0NGEiyq1BGXU4zqGfuBwSL5njO7iDvAJym0F7h0OWyCWmzej1tzxZQ",
+    "https://play-lh.googleusercontent.com/N5zVY4F6PCUc5vhuYyF80h-inbcsuIR2qgJXXgBtzXNfIUveb7kEkbcEZCh_xHyOQjY",
+    "https://play-lh.googleusercontent.com/55pukJuhIGd8TzPnlMUtmnrNKBooTfEy1WphYaaB4OBbrkgV0XYiNbnSaBoVPl_P4A",
+    "https://play-lh.googleusercontent.com/oDhlIw_PEl0h-r4MN0Sw1mI0YW09rvunAwTtlVgiOj9yzKNJgbC3nz-7d-5EHwQWmpIX"
+  ],
+  "faq_items": [
+    {
+      "question": "How does Spotify Premium work?",
+      "answer": "The experience is designed around fast discovery, smooth listening, and personalized recommendations."
+    },
+    {
+      "question": "What are the benefits of using Spotify?",
+      "answer": "The experience is designed around fast discovery, smooth listening, and personalized recommendations."
+    },
+    {
+      "question": "Can I listen offline with Spotify?",
+      "answer": "You can install the app and use its supported features on your device immediately. Check in-app settings for offline options."
+    }
+  ],
+  "cta_text": "Install and Start Listening",
+  "cta_url": "https://play.google.com/store/apps/details?id=com.spotify.music"
+}

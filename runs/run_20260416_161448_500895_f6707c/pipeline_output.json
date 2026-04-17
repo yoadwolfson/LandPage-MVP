@@ -1,0 +1,121 @@
+{
+  "run_id": "run_20260416_161448_500895_f6707c",
+  "timestamp": "2026-04-16T16:14:57.585890",
+  "google_play_url": "https://play.google.com/store/apps/details?id=com.govil.mygov",
+  "extracted_data": {
+    "app_id": "com.govil.mygov",
+    "app_name": "MyGov",
+    "developer_name": "GOV.IL ISRAEL GOVERNMENT",
+    "short_description": "Personal Government Zone is a new application that makes digital services accessible to residents",
+    "full_description": "Government Personal Area is a new application that provides access to digital services for residents, businesses and cooperative associations in Israel. The application is highly secure and allows you to pay payments, receive information, download digitally signed official documents and perform actions with the government.\r\n• The application concentrates government services under one roof, and you can easily find everything you need. For example: downloading the Taz appendix, downloading a car license and more\r\n• The application allows you to perform actions easily and quickly, anytime and anywhere. For example: changing a license plate, activating a TZ, transferring ownership of a vehicle, associating a vehicle with a disabled tag, and more\r\n• The app is highly secure to protect your personal information.\r\n• The application is easy to use and allows you to perform actions easily and quickly.\r\nDownload the app now and start using the government services easily and conveniently!",
+    "icon_url": "https://play-lh.googleusercontent.com/UgcNTdQDfOZ_QmEr350rKEG0WfaU8WJvDGloyrQ8ema98DDb2KFx1cX1imWML6sN5A",
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/Y55FfNG3NC-wLUw3IlQCRj_p5_0mLSc63aL86n4ujDnc3IOTJnERLvuaZ6Q4ytAiiCk",
+      "https://play-lh.googleusercontent.com/xlu9ye7kFNeI-WYpX42IRnCrL7Rw4Y3BHyMnmnF465uZbbBVW7HiAWFuL6NnpLnVRL6G"
+    ],
+    "rating": 1.57,
+    "installs": "506102",
+    "reviews": [],
+    "last_updated": null,
+    "current_version": "Varies with device",
+    "min_android_version": null
+  },
+  "strategy": {
+    "target_audience": "Residents and businesses in Israel seeking easy access to government services",
+    "tone": "informative and supportive",
+    "main_angle": "Streamlined access to essential government services in one secure app",
+    "top_benefits": [
+      "Access to a wide range of government services in one place",
+      "Secure handling of personal information",
+      "Convenient and easy-to-use interface for quick actions"
+    ],
+    "selected_reviews": [],
+    "faq_topics": [
+      "How to download and install the app",
+      "What services are available through the app",
+      "How to ensure the security of personal information"
+    ],
+    "missing_data_flags": [
+      "rating_not_promoted_below_4_5",
+      "reviews_hidden_for_low_rating",
+      "no_good_recent_reviews"
+    ],
+    "style_guide": {
+      "bucket": "government",
+      "theme": "professional",
+      "palette": "logo-derived from #A0C0FF and #FFFFFF",
+      "visual_direction": "clean and straightforward",
+      "template_id": "default",
+      "template_objective": "To provide a clear and accessible layout for government services",
+      "typography": "sans-serif",
+      "color_primary": "#A0C0FF",
+      "color_secondary": "#384763",
+      "color_background": "#1A1F29",
+      "color_surface": "#303D57",
+      "color_text": "#F8FAFC",
+      "color_accent": "#FFFFFF",
+      "hero_layout": "full-width",
+      "card_layout": "grid",
+      "typography_density": "normal",
+      "content_emphasis": "text",
+      "visual_intensity": "medium",
+      "section_order": "benefit-first",
+      "tone_variant": "trustworthy",
+      "trust_level": "high",
+      "motion_hint": "minimal",
+      "palette_source": "brand_logo"
+    },
+    "strategy_source": "openai",
+    "fallback_reason": null
+  },
+  "landing_content": {
+    "hero_headline": "MyGov",
+    "hero_subheadline": "Discover MyGov. Personal Government Zone is a new application that makes digital services accessible to residents",
+    "hero_image_url": "https://play-lh.googleusercontent.com/UgcNTdQDfOZ_QmEr350rKEG0WfaU8WJvDGloyrQ8ema98DDb2KFx1cX1imWML6sN5A",
+    "benefits": [
+      {
+        "title": "Wide Access",
+        "description": "Access to a wide range of government services in one place",
+        "icon_emoji": "VALUE"
+      },
+      {
+        "title": "Secure Experience",
+        "description": "Secure handling of personal information",
+        "icon_emoji": "FAST"
+      },
+      {
+        "title": "Convenient Easy",
+        "description": "Convenient and easy-to-use interface for quick actions",
+        "icon_emoji": "TRUST"
+      }
+    ],
+    "social_proof_headline": "Trusted by 506.1K installs",
+    "social_proof_rating": null,
+    "social_proof_installs": "506.1K",
+    "social_proof_reviews": [],
+    "screenshots": [
+      "https://play-lh.googleusercontent.com/Y55FfNG3NC-wLUw3IlQCRj_p5_0mLSc63aL86n4ujDnc3IOTJnERLvuaZ6Q4ytAiiCk",
+      "https://play-lh.googleusercontent.com/xlu9ye7kFNeI-WYpX42IRnCrL7Rw4Y3BHyMnmnF465uZbbBVW7HiAWFuL6NnpLnVRL6G"
+    ],
+    "faq_items": [
+      {
+        "question": "How to download and install the app",
+        "answer": "The app is designed for a reliable, user-friendly experience from first install."
+      },
+      {
+        "question": "What services are available through the app",
+        "answer": "The app is designed for a reliable, user-friendly experience from first install."
+      },
+      {
+        "question": "How to ensure the security of personal information",
+        "answer": "Your account and usage settings are managed inside the app. Review permissions and privacy settings during onboarding for best control."
+      }
+    ],
+    "cta_text": "Install on Google Play",
+    "cta_url": "https://play.google.com/store/apps/details?id=com.govil.mygov"
+  },
+  "html_file": "outputs\\run_20260416_161448_500895_f6707c.html",
+  "artifacts_folder": "runs\\run_20260416_161448_500895_f6707c",
+  "status": "success",
+  "error_message": null
+}

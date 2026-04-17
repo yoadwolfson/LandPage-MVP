@@ -1,0 +1,63 @@
+{
+  "target_audience": "Individuals and businesses looking for a secure and convenient payment solution",
+  "tone": "trustworthy and user-friendly",
+  "main_angle": "Secure and easy money management and transactions",
+  "top_benefits": [
+    "Fast and secure payments anytime, anywhere",
+    "Reliable for online shopping and money transfer",
+    "Earn cash back on purchases and manage savings easily"
+  ],
+  "selected_reviews": [
+    {
+      "rating": 5,
+      "text": "Very convenient and easy to use app. Fast and secure payments anytime, anywhere. Reliable for online shopping and money transfer. Highly recommended!",
+      "reviewer": "liola jenn"
+    },
+    {
+      "rating": 5,
+      "text": "PayPal is a trusted app for sending and receiving money online. It is easy to use, widely accepted by many online stores, and offers secure transactions. Overall, it’s a reliable and convenient payment platform 👍",
+      "reviewer": "syakir haziq"
+    },
+    {
+      "rating": 5,
+      "text": "PayPal is the industry standard for secure online payments, offering unmatched peace of mind through its robust Buyer Protection program. It simplifies the checkout process by storing your financial details securely, allowing for one-click purchases across millions of global retailers.",
+      "reviewer": "Aliesya Syakila"
+    }
+  ],
+  "faq_topics": [
+    "How does PayPal ensure transaction security?",
+    "What are the benefits of using PayPal for online shopping?",
+    "How can I earn cash back with PayPal?"
+  ],
+  "missing_data_flags": [
+    "rating_not_promoted_below_4_5",
+    "review_proof_enabled"
+  ],
+  "style_guide": {
+    "bucket": "finance",
+    "theme": "modern",
+    "palette": "logo-derived from #C0C0E0 and #FFFFFF",
+    "visual_direction": "clean and professional",
+    "template_id": "default",
+    "template_objective": "To provide a clean and professional layout that emphasizes security and ease of use for financial transactions.",
+    "typography": "sans-serif",
+    "color_primary": "#C0C0E0",
+    "color_secondary": "#41475A",
+    "color_background": "#1F1F24",
+    "color_surface": "#383D50",
+    "color_text": "#F8FAFC",
+    "color_accent": "#FFFFFF",
+    "hero_layout": "full-width",
+    "card_layout": "grid",
+    "typography_density": "normal",
+    "content_emphasis": "text",
+    "visual_intensity": "medium",
+    "section_order": "benefit-first",
+    "tone_variant": "friendly",
+    "trust_level": "high",
+    "motion_hint": "subtle",
+    "palette_source": "brand_logo"
+  },
+  "strategy_source": "openai",
+  "fallback_reason": null
+}

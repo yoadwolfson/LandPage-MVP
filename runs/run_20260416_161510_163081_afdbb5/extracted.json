@@ -1,0 +1,73 @@
+{
+  "app_id": "com.laketrustcreditunion.app",
+  "app_name": "Lake Trust Mobile Banking",
+  "developer_name": "LT Credit Union",
+  "short_description": "Manage Lake Trust accounts on the go in a secure and seamless mobile experience.",
+  "full_description": "Lake Trust Credit Union’s Mobile App makes it easy to manage your accounts. And get closer to your financial goals. All from your mobile device. It’s fast, secure, and free.  \r\n\r\n- Check available balances & transaction history \r\n- Deposit checks from your iPhone or iPad \r\n- Pay bills and credit cards \r\n- Transfer money between Lake Trust accounts \r\n- Transfer money to other financial institutions  \r\n- Find Lake Trust relationship centers, ATMs & VTMs \r\nSend us a message \r\n\r\nYou must be a Lake Trust member and enrolled in our online banking service. To sign up, visit www.laketrust.org.",
+  "icon_url": "https://play-lh.googleusercontent.com/MgKqCfMJRRpCbc21uGYGhIQdLdY6Z4oBUgqw-3bB66hyAYU3EV7Yz3DVyk1PJF9wBH0PzBmT7lmln12lUGwZZE8",
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/FwT8IzVwmWJSwSivD_CW1KR5hLI9ElTmjMDYaf2xkbmOOfz9-nub5eIr5RWnwyC7qw",
+    "https://play-lh.googleusercontent.com/VgK5Z_HiNrQ3JH2jbyzCDvw4jb_FxXDorkSq7UKBI-tCbj-nF9W9iEL7AI_NYqYonw",
+    "https://play-lh.googleusercontent.com/sJ1Ats4-xWv18LynuAva2nmMeTv8WaA-2qv71itzPPabfOKp2aMxXfkezvuDr0nql4g",
+    "https://play-lh.googleusercontent.com/arDlqGAwO02Yr73GGs9ni6p4RUm6f-7uEJnp1RwF4sQ63pSz-QRh86vpQoVOe_c7bdw",
+    "https://play-lh.googleusercontent.com/N5Cfl5td96Y2_ZQxlYYSglOgkpvjtqyyDXX-GoybZ8oeEHhZH7ljxHAaM_tIBaz-KoJq",
+    "https://play-lh.googleusercontent.com/LwZfBhkeGTEcfR6S14G1Pxd5Nz3RaC0gSDEVrbTmaxyCiI0vHVbqnmgO9GNou9NDMb6v",
+    "https://play-lh.googleusercontent.com/3mF6vQV_yulFn6hSh6wRgtW_KX4azD84iPVrHeLI41rcR6iids3Yhbd0FRx1_9fQlzHV",
+    "https://play-lh.googleusercontent.com/zPwUgSjYBZWr3S3De_uC1GpxrHEz38c6hk9rbEu_zfQSnzURXspZNkMuuuttafrt_eI"
+  ],
+  "rating": 2.78,
+  "installs": "35431",
+  "reviews": [
+    {
+      "rating": 5,
+      "text": "Easy to access and navigate the app. Customer service both in person and on the phone are professional and helpful.",
+      "reviewer": "Julie McNeely",
+      "date": "2026-04-13"
+    },
+    {
+      "rating": 5,
+      "text": "been using this app for a while. im able to get the information I need easily.",
+      "reviewer": "Larry Carlson",
+      "date": "2026-04-09"
+    },
+    {
+      "rating": 5,
+      "text": "TOP TIER SERVICE ALL THE TIME (even w/unpleasantnews) Both fin. inst. f26 yrs. DART BANK(00-current). Small town banks have charm, DART if bigger isn't a small Bank(branch#,new builds, staff turn around, hrs of operation ARE AS IF THEY STILL HAVE 2 BRANCHES). When I have had an ACTUAL AMAZING FINANCIAL INSTITUTION THE WHOLE TIME & IT'S A CREDIT UNI",
+      "reviewer": "Kellie Stiles Densmore",
+      "date": "2026-03-28"
+    },
+    {
+      "rating": 5,
+      "text": "very efficient",
+      "reviewer": "Victor Quinn",
+      "date": "2026-03-16"
+    },
+    {
+      "rating": 5,
+      "text": "best app very easy to use i love it thank you so much for make easy to pay with out call or do money order .",
+      "reviewer": "ramsn gt",
+      "date": "2026-03-12"
+    },
+    {
+      "rating": 5,
+      "text": "Love the new app, everything is easy to find and much faster than it was before.",
+      "reviewer": "Martha Varga",
+      "date": "2026-03-08"
+    },
+    {
+      "rating": 5,
+      "text": "I like the app but I want the option to move the app to the SD card",
+      "reviewer": "Ashley Perry",
+      "date": "2026-03-02"
+    },
+    {
+      "rating": 5,
+      "text": "Great app!",
+      "reviewer": "Steve Oyler",
+      "date": "2026-02-26"
+    }
+  ],
+  "last_updated": "1774626625",
+  "current_version": "1.0.4",
+  "min_android_version": null
+}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Me - Caller ID & Spam Blocker</title>
+  <style>
+    
+    :root {
+      --primary: #00A0FF;
+      --secondary: #083D63;
+      --bg: #001A29;
+      --surface: #0D3657;
+      --text: #F8FAFC;
+      --accent: #FFFFFF;
+      --heading-size: 34px;
+      --body-size: 15px;
+      --padding: 20px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 15% -10%, color-mix(in srgb, var(--primary) 14%, transparent), transparent), var(--bg);
+      line-height: 1.5;
+      font-size: var(--body-size);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: var(--padding); }
+    .flow { display: flex; flex-direction: column; gap: 0; }
+    .section { margin: var(--padding) 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
+      border-radius: 14px;
+      padding: var(--padding);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+    }
+    .hero img {
+      width: 108px;
+      height: 108px;
+      border-radius: 20px;
+    }
+    h1 { margin: 0 0 10px 0; font-size: var(--heading-size); }
+    h2 { font-size: calc(var(--heading-size) - 6px); }
+    p { margin: 0; color: color-mix(in srgb, var(--text) 80%, transparent); }
+    .cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .meta { color: color-mix(in srgb, var(--text) 65%, transparent); font-size: calc(var(--body-size) - 1px); }
+    
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    
+    .benefits-section {
+      margin-top: var(--padding);
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
+      padding: 20px;
+    }
+    
+    .benefit { border-radius: 12px; padding: 14px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); display: flex; flex-direction: column; }
+    .benefit h3 { margin: 8px 0 8px 0; font-size: calc(var(--heading-size) - 12px); }
+    .benefit p { word-wrap: break-word; overflow-wrap: break-word; flex-grow: 1; margin: 0; }
+    .token {
+      display: inline-block;
+      font-size: 11px;
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);       
+      border-radius: 999px;
+      padding: 4px 8px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      width: fit-content;
+    }
+    .reviews blockquote {
+      margin: 0;
+      padding: var(--padding);
+      border-left: 3px solid var(--accent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--accent));
+      border-radius: 8px;
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    }
+    .reviews blockquote div { color: var(--text); }
+    .reviews blockquote footer { color: color-mix(in srgb, var(--text) 70%, transparent); }
+    .gallery { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .gallery img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; border: 1px solid #d1d5db; }
+    .faq-item { margin-bottom: 12px; }
+    .faq-item strong { display: block; margin-bottom: 4px; }
+    
+    .section-title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .vibe { font-size: 12px; border-radius: 999px; padding: 4px 8px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); color: color-mix(in srgb, var(--text) 74%, transparent); }
+    
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="section card hero">
+      <div>
+        <div class="meta">NFO LTD</div>
+        <h1>Me - Caller ID & Spam Blocker</h1>
+        <p>Discover Me - Caller ID & Spam Blocker. Me Caller Id & SPAM Protection reveal the true callers name avoid unwanted calls</p>
+        <div class="meta">
+ • 19.1M installs        </div>
+        <a class="cta" href="https://play.google.com/store/apps/details?id=com.nfo.me.android">Install on Google Play</a>
+      </div>
+      <img src="https://play-lh.googleusercontent.com/VdAx9gEkmsXzR_f8Q1arOR__24mqlr_Rt3WS_AqK5lovLOj2Cuw1Z1FQhRyUlBUbaUk" alt="Me - Caller ID & Spam Blocker icon" />
+    </section>
+
+    <div class="flow">
+    <section class="section benefits-section" style="order:2;">
+      <div class="section-title-row">
+      <h2>Why It Works</h2>
+      </div>
+      <div class="grid">
+        <article class="benefit">
+          <div class="token">VALUE</div>
+          <h3>Identify Block Spam</h3>
+          <p>Identify and block spam calls in real-time</p>
+        </article>
+        <article class="benefit">
+          <div class="token">FAST</div>
+          <h3>Easy Discovery</h3>
+          <p>Discover who saved your number and how</p>
+        </article>
+        <article class="benefit">
+          <div class="token">TRUST</div>
+          <h3>Enjoy Powerful Dialer</h3>
+          <p>Enjoy a powerful T9 dialer and intuitive call log</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section card reviews" style="order:3;">
+      <h2>Trusted by 19.1M installs</h2>
+        <p class="meta">Protect yourself from unwanted calls while enhancing your contact management</p>
+    </section>
+
+    <section class="section" style="order:4;">
+      <h2>App In Action</h2>
+      <div class="benefits-section" style="background: transparent; border: none; padding: 0;">
+        <div class="grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          <img src="https://play-lh.googleusercontent.com/5korHWIS3Cpr2srPwNdw3Szoj1nY3CLN4dub2N7lihmeaYUhERcEgSYkwbvImpGgR-aHpLhZ1liKg4WtpXpqQA" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/FYkJQrGsci6DX2WYZ9MzqMmkYqF5-uNr9nS7GtaY38CBQI2SZO5YOBmw1NVAvZU1CLfr_M5HB3rkLh66NqG5vQ" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/C8mDbXJx476cWpuPeQQxEMG45bGAlWAUlhl6pZOW2I2n-M9TL67mjD2wmWYtTJZ6urfMfxFCaVAfnJobfu0qPfM" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/XXb-hzb7HmKUC8lFg-hyIV_cBR_Y7jfsoIYzUki0oYOA7GSO-tP6ic94x-Pl4YYmeYApkyzRlWemNcne4Xg_Dg" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/k9HhLfAWOm_F6HQUwyjFK1bpSFP5Mge-4t6bKlfuNhSZYzebdKWPCl-e2VsRfGGCK1Eb76gPypqEwJlbLbV7GX0" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/45MqstHkYGrZ309p9JdlYmGDFhXcojn8kdZavZ9BJF4rto2KwXfh89ggQKaEbnsFhYfadRHLccgqwFokhlJS4g" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section card" style="order:5;">
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <strong>How does the spam blocking feature work?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </div>
+      <div class="faq-item">
+        <strong>Can I see who saved my number?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </div>
+      <div class="faq-item">
+        <strong>What are the privacy controls available?</strong>
+        <div>Your account and usage settings are managed inside the app. Review permissions and privacy settings during onboarding for best control.</div>
+      </div>
+    </section>
+
+    <section class="section card" style="text-align:center; order:6;">
+      <h2>Ready to Try Me - Caller ID & Spam Blocker?</h2>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.nfo.me.android">Install on Google Play</a>
+    </section>
+    </div>
+  </main>
+</body>
+</html>

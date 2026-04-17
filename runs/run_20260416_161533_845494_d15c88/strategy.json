@@ -1,0 +1,63 @@
+{
+  "target_audience": "Aspiring musicians and songwriters looking for a collaborative music creation platform.",
+  "tone": "enthusiastic and supportive",
+  "main_angle": "Empower your music creativity with professional tools and collaboration.",
+  "top_benefits": [
+    "Multitrack recording with professional sound quality",
+    "Built-in lyric notepad and rhyming dictionary for enhanced songwriting",
+    "Collaborate with other artists and share your music easily"
+  ],
+  "selected_reviews": [
+    {
+      "rating": 5,
+      "text": "Offtop hands down favorite thing to do ! Besides make money",
+      "reviewer": "James Christopher Frederick"
+    },
+    {
+      "rating": 5,
+      "text": "Its and amazing app For mixing tracks. It's easy to use with amazing results.",
+      "reviewer": "Hard Wyte"
+    },
+    {
+      "rating": 5,
+      "text": "I am a beat maker also song writer I love producing myself a lot and this platform it can maybe help me.",
+      "reviewer": "Mzwamadoda Tembani"
+    }
+  ],
+  "faq_topics": [
+    "How to collaborate with other artists?",
+    "What features are included in the music editor?",
+    "How can I protect my beats and songs on the platform?"
+  ],
+  "missing_data_flags": [
+    "rating_not_promoted_below_4_5",
+    "review_proof_enabled"
+  ],
+  "style_guide": {
+    "bucket": "music creation",
+    "theme": "creative and vibrant",
+    "palette": "logo-derived from #000000 and #FFFFFF",
+    "visual_direction": "dynamic and modern",
+    "template_id": "music",
+    "template_objective": "To showcase the app's features and benefits in an engaging way that resonates with musicians.",
+    "typography": "bold and clear",
+    "color_primary": "#000000",
+    "color_secondary": "#080D16",
+    "color_background": "#000000",
+    "color_surface": "#383838",
+    "color_text": "#F8FAFC",
+    "color_accent": "#FFFFFF",
+    "hero_layout": "full-width",
+    "card_layout": "grid",
+    "typography_density": "normal",
+    "content_emphasis": "visual",
+    "visual_intensity": "medium",
+    "section_order": "benefit-first",
+    "tone_variant": "friendly",
+    "trust_level": "high",
+    "motion_hint": "subtle",
+    "palette_source": "brand_logo"
+  },
+  "strategy_source": "openai",
+  "fallback_reason": null
+}

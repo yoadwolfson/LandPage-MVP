@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lake Trust Mobile Banking</title>
+  <style>
+    
+    :root {
+      --primary: #6080A0;
+      --secondary: #243446;
+      --bg: #0F141A;
+      --surface: #222F42;
+      --text: #F8FAFC;
+      --accent: #FFFFFF;
+      --heading-size: 34px;
+      --body-size: 15px;
+      --padding: 20px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 15% -10%, color-mix(in srgb, var(--primary) 14%, transparent), transparent), var(--bg);
+      line-height: 1.5;
+      font-size: var(--body-size);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: var(--padding); }
+    .flow { display: flex; flex-direction: column; gap: 0; }
+    .section { margin: var(--padding) 0; }
+    .card {
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
+      border-radius: 14px;
+      padding: var(--padding);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+    }
+    .hero img {
+      width: 108px;
+      height: 108px;
+      border-radius: 20px;
+    }
+    h1 { margin: 0 0 10px 0; font-size: var(--heading-size); }
+    h2 { font-size: calc(var(--heading-size) - 6px); }
+    p { margin: 0; color: color-mix(in srgb, var(--text) 80%, transparent); }
+    .cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .meta { color: color-mix(in srgb, var(--text) 65%, transparent); font-size: calc(var(--body-size) - 1px); }
+    
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    
+    .benefits-section {
+      margin-top: var(--padding);
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      background: color-mix(in srgb, var(--surface) 86%, var(--secondary));
+      padding: 20px;
+    }
+    
+    .benefit { border-radius: 12px; padding: 14px; background: color-mix(in srgb, var(--surface) 88%, var(--accent)); display: flex; flex-direction: column; }
+    .benefit h3 { margin: 8px 0 8px 0; font-size: calc(var(--heading-size) - 12px); }
+    .benefit p { word-wrap: break-word; overflow-wrap: break-word; flex-grow: 1; margin: 0; }
+    .token {
+      display: inline-block;
+      font-size: 11px;
+      background: var(--text);
+      color: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);       
+      border-radius: 999px;
+      padding: 4px 8px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      width: fit-content;
+    }
+    .reviews blockquote {
+      margin: 0;
+      padding: var(--padding);
+      border-left: 3px solid var(--accent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--accent));
+      border-radius: 8px;
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    }
+    .reviews blockquote div { color: var(--text); }
+    .reviews blockquote footer { color: color-mix(in srgb, var(--text) 70%, transparent); }
+    .gallery { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .gallery img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; border: 1px solid #d1d5db; }
+    .faq-item { margin-bottom: 12px; }
+    .faq-item strong { display: block; margin-bottom: 4px; }
+    
+    .section-title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .vibe { font-size: 12px; border-radius: 999px; padding: 4px 8px; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); color: color-mix(in srgb, var(--text) 74%, transparent); }
+    
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="section card hero">
+      <div>
+        <div class="meta">LT Credit Union</div>
+        <h1>Lake Trust Mobile Banking</h1>
+        <p>Discover Lake Trust Mobile Banking. Manage Lake Trust accounts on the go in a secure and seamless mobile experience.</p>
+        <div class="meta">
+ • 35.4K installs        </div>
+        <a class="cta" href="https://play.google.com/store/apps/details?id=com.laketrustcreditunion.app">Install on Google Play</a>
+      </div>
+      <img src="https://play-lh.googleusercontent.com/MgKqCfMJRRpCbc21uGYGhIQdLdY6Z4oBUgqw-3bB66hyAYU3EV7Yz3DVyk1PJF9wBH0PzBmT7lmln12lUGwZZE8" alt="Lake Trust Mobile Banking icon" />
+    </section>
+
+    <div class="flow">
+    <section class="section benefits-section" style="order:2;">
+      <div class="section-title-row">
+      <h2>Why It Works</h2>
+      </div>
+      <div class="grid">
+        <article class="benefit">
+          <div class="token">VALUE</div>
+          <h3>Easy Access</h3>
+          <p>Easy access to account information</p>
+        </article>
+        <article class="benefit">
+          <div class="token">FAST</div>
+          <h3>Fast Transfers</h3>
+          <p>Efficient bill payments and money transfers</p>
+        </article>
+        <article class="benefit">
+          <div class="token">TRUST</div>
+          <h3>User-Friendly Interface</h3>
+          <p>User-friendly interface for all banking needs</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section card reviews" style="order:3;">
+      <h2>Trusted by 35.4K installs</h2>
+        <p class="meta">Seamless and secure banking experience on the go.</p>
+    </section>
+
+    <section class="section" style="order:4;">
+      <h2>App In Action</h2>
+      <div class="benefits-section" style="background: transparent; border: none; padding: 0;">
+        <div class="grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          <img src="https://play-lh.googleusercontent.com/FwT8IzVwmWJSwSivD_CW1KR5hLI9ElTmjMDYaf2xkbmOOfz9-nub5eIr5RWnwyC7qw" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/VgK5Z_HiNrQ3JH2jbyzCDvw4jb_FxXDorkSq7UKBI-tCbj-nF9W9iEL7AI_NYqYonw" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/sJ1Ats4-xWv18LynuAva2nmMeTv8WaA-2qv71itzPPabfOKp2aMxXfkezvuDr0nql4g" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/arDlqGAwO02Yr73GGs9ni6p4RUm6f-7uEJnp1RwF4sQ63pSz-QRh86vpQoVOe_c7bdw" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/N5Cfl5td96Y2_ZQxlYYSglOgkpvjtqyyDXX-GoybZ8oeEHhZH7ljxHAaM_tIBaz-KoJq" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+          <img src="https://play-lh.googleusercontent.com/LwZfBhkeGTEcfR6S14G1Pxd5Nz3RaC0gSDEVrbTmaxyCiI0vHVbqnmgO9GNou9NDMb6v" alt="app screenshot" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section card" style="order:5;">
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <strong>How to deposit checks using the app?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </div>
+      <div class="faq-item">
+        <strong>What features are available for money transfers?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </div>
+      <div class="faq-item">
+        <strong>How to contact customer support?</strong>
+        <div>The app is designed for a reliable, user-friendly experience from first install.</div>
+      </div>
+    </section>
+
+    <section class="section card" style="text-align:center; order:6;">
+      <h2>Ready to Try Lake Trust Mobile Banking?</h2>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.laketrustcreditunion.app">Install on Google Play</a>
+    </section>
+    </div>
+  </main>
+</body>
+</html>
